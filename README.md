@@ -8,7 +8,7 @@ El portal permitirá el registro de nuevos usuarios y en la página principal ya
 
 Se aspirará inicialmente a hacer una base funcional la cual se irá ampliando con funcionalidades adicionales y otras filigranas una vez esté acabada. 
 
-Finalmente, el objetivo de esta practica será el demostrar la capacidad de trabajar en grupo además de aplicar conocimientos.
+Finalmente, el objetivo de esta practica será el demostrar la capacidad de trabajar en grupo además de aplicar los conocimientos adquiridos en clase.
 
 ## División del trabajo
 
@@ -27,12 +27,13 @@ Si en algun momento alguien decide deliberadamente trabajar sobre el mismo codig
 
 ## Documentación y formato del código
 
-Se procurará tener el codigo sea lo mas legible posible pues no sabemos si en algun momento alguien manipulará. Un proyecto debidamente documentado suele tener mucho mas comentarios que código funcional. 
+Se procurará tener el codigo sea lo mas legible posible usando adecuadamente saltos de lineas, espaciado y tabulaciones pues no sabemos si en algun momento alguien manipulará. Un proyecto debidamente documentado suele tener mucho mas comentarios que código funcional.
 
 Tomarse la molestia de escribir documentos como este facilitarán a posteriori la entrega de un manual al cliente que es muy posible lo que examinen y evaluen.
 
-No obstante, dado el corto plazo de entrega, será aun mas prioritario que esto el tener codigo funcional
+Se usará una nocomenclatura descriptiva y lo más parecida a la usada en clase para nombrar paquetes, clases, archivos, variables y metodos.
 
+No obstante, dado el corto plazo de entrega, será aun mas prioritario que esto el tener codigo funcional
 
 
 
