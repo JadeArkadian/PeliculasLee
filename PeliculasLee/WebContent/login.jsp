@@ -4,6 +4,30 @@
 	<div id="main">
 		<div class="loginBox">
 
+				
+				<form:form method="post" action="login.do" commandName="datosUsuario">
+				
+					<h1>Iniciar sesion</h1>
+			           
+					<div>	
+						<form:input path="username" />
+					</div>
+			           
+					<div>
+						<form:password path="password" />
+					</div>
+			           
+					<div>
+						<input type="submit" value="Log in" />
+						<a href="register.jsp">Crear usuario</a>
+					</div>
+					
+				</form:form>
+
+
+
+
+<!--  
 			<form action="login.do" method="post">
 				<h1>Iniciar sesion</h1>
 		           
@@ -19,8 +43,13 @@
 					<input type="submit" value="Log in" />
 					<a href="register.jsp">Crear usuario</a>
 				</div>
+				
+				</form>  
+				
+				
+				-->
 		           
-			</form>    
+			  
 		</div>
 	</div>
 
