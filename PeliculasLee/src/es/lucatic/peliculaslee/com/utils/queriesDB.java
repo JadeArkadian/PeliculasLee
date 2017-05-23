@@ -6,13 +6,13 @@
 		
 	//TABLA PELICULAS	
 	public static String findAllPeliculasQuery="SELECT * FROM peliculas";
-	public static String findByIDPeliculasQuery="SELECT * FROM Peliculas WHERE idPelicula=?";
-	public static String findByTituloPeliculasQuery="SELECT * FROM peliculas WHERE titulo=?";
-	public static String findByTituloLikePeliculasQuery="SELECT * FROM peliculas WHERE titulo like ?";
-	public static String findByAnioPeliculasQuery="SELECT * FROM peliculas WHERE anio=?";
-	public static String findByDirectorPeliculasQuery="SELECT * FROM peliculas WHERE director=?";
-	public static String findByUsernamePeliculasQuery="SELECT * FROM peliculas WHERE username=?";
-	public static String findAllLast12PeliculasQuery="SELECT * FROM peliculas ORDER BY fechaCreacion DESC LIMIT 12";
+	public static String findPeliculaByIdPeliculaQuery="SELECT * FROM Peliculas WHERE idPelicula=?";
+	public static String findPeliculasByTituloQuery="SELECT * FROM peliculas WHERE titulo=?";
+	public static String findPeliculasByTituloLikeQuery="SELECT * FROM peliculas WHERE titulo like ?";
+	public static String findPeliculasByAnioQuery="SELECT * FROM peliculas WHERE anio=?";
+	public static String findPeliculasByDirectorQuery="SELECT * FROM peliculas WHERE director=?";
+	public static String findPeliculasByUsernameQuery="SELECT * FROM peliculas WHERE username=?";
+	public static String findLast12PeliculasQuery="SELECT * FROM peliculas ORDER BY fechaCreacion DESC LIMIT 12";
 	public static String findPeliculasWithAnioHigherThanQuery="SELECT * FROM peliculas WHERE anio>?";
 	public static String findPeliculasWithAnioLowerThanQuery="SELECT * FROM peliculas WHERE anio<?";
 	
