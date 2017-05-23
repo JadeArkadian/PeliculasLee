@@ -57,11 +57,11 @@ CREATE TABLE IF NOT EXISTS `peliculasLee`.`peliculas` (
     `idPelicula` INT NOT NULL AUTO_INCREMENT,
     `titulo` VARCHAR(45) NULL,
     `sinopsis` VARCHAR(2000) NULL,
-    `año` INT NULL,
+    `anio` INT(4) NULL,
     `director` VARCHAR(45) NULL,
     `reparto` VARCHAR(2000) NULL,
     `username` VARCHAR(45) NOT NULL,
-    `fechaCreación` DATE NULL,
+    `fechaCreacion` DATE NULL,
     PRIMARY KEY (`idPelicula`),
     INDEX `fk_peliculas_administradores1_idx` (`username` ASC),
     CONSTRAINT `fk_peliculas_administradores1` FOREIGN KEY (`username`)
