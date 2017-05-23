@@ -2,6 +2,7 @@ package es.lucatic.peliculaslee.com.controllers;
 import javax.validation.Valid;
 import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -11,8 +12,8 @@ import es.lucatic.peliculaslee.com.service.UsuariosService;
 
 @Controller
 public class RegistroController {
-	/* MAPEO QUE LE DECIMOS DONDE ESTA LA SIGUIENTE PAGINA. EN ESTE CASO Registro DE HTML.
-	registo.HTML. COGE EL VALOR DE LA ACCION. */
+	
+	// MAPEO usado en el form
 	@RequestMapping( value = "/registro", method = RequestMethod.GET )
 	
 	public ModelAndView interface_altaUsuario() {
@@ -20,7 +21,7 @@ public class RegistroController {
 		return new ModelAndView( "index", "datosaltausuario", new Usuarios() );
 	}
 	
-	/* METODO QUE RECOGE LOS DATOS DEL FORMULARIO. */
+	// METODO QUE RECOGE LOS DATOS DEL FORMULARIO
 	
 	@RequestMapping( value = "/addaltausuario", method = RequestMethod.POST )
 	// ANOTACION DE QUE VA A RECIBIR UN Usuario. SIN LA ANOTACION NO FUNCIONA
@@ -28,7 +29,7 @@ public class RegistroController {
 		System.out.println( usuario.getUsername() );
 		
 		UsuariosService usuService = new UsuariosService();
-		
+		//Si no existe el usuario lo creo, con su respectivo mensaje.
 		if( usuService.search(usuario) == null ){
 			usuService.add(usuario);
 			//Subo a la sesion el usuario registrado
@@ -41,5 +42,12 @@ public class RegistroController {
 		}
 		
 		return new ModelAndView( "index" );
+	}
+	
+	@ModelAttribute("datosUsuario")  
+	//  "datosCoche" coincide con el <form:form method="post" action="registro" commandName="datosUsuario"> del .jsp
+	public Usuarios populateForm() {
+		 System.out.println("populateForm()");
+	     return new Usuarios(); // creamos el bean para que se pueda popular
 	}
 }
