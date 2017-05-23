@@ -51,9 +51,10 @@ blockquote:before, blockquote:after, q:before, q:after
 		border-spacing: 0;
 	}
 
-	body {
+body 
+{
 		-webkit-text-size-adjust: none;
-	}
+}
 
 /* Box Model */
 
@@ -931,11 +932,12 @@ blockquote:before, blockquote:after, q:before, q:after
 
 /* Button */
 
-	input[type="submit"],
-	input[type="reset"],
-	input[type="button"],
-	button,
-	.button {
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+button,
+.button 
+{
 		-moz-appearance: none;
 		-webkit-appearance: none;
 		-ms-appearance: none;
@@ -959,13 +961,14 @@ blockquote:before, blockquote:after, q:before, q:after
 		white-space: nowrap;
 	}
 
-		input[type="submit"]:hover,
-		input[type="reset"]:hover,
-		input[type="button"]:hover,
-		button:hover,
-		.button:hover {
-			background-color: #82cec6;
-		}
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+input[type="button"]:hover,
+button:hover,
+.button:hover 
+{
+    background-color: #82cec6;
+}
 
 		input[type="submit"]:active,
 		input[type="reset"]:active,
@@ -1459,27 +1462,74 @@ body.is-loading #banner:before
 
 		}
 
-		@media screen and (max-width: 640px) {
-
-			#header nav a[href="#menu"] {
+		@media screen and (max-width: 640px) 
+        {
+			#header nav a[href="#menu"] 
+            {
 				width: 4em;
 				white-space: nowrap;
 				text-indent: 4em;
 				position: relative;
 			}
 
-				#header nav a[href="#menu"]:before {
-					width: inherit;
-					position: absolute;
-					top: 0;
-					left: 0;
-					text-indent: 0;
-					text-align: right;
-					margin-left: 0;
-					padding-right: 1.25em;
-				}
-
+            #header nav a[href="#menu"]:before 
+            {
+                width: inherit;
+                position: absolute;
+                top: 0;
+                left: 0;
+                text-indent: 0;
+                text-align: right;
+                margin-left: 0;
+                padding-right: 1.25em;
+            }
 		}
 
+
+
+
+.loginBox
+{
+    max-width: 100%;
+    margin-bottom: 650px;
+    margin-top: 150px;
+
+    /* Firefox */
+    display:-moz-box;
+    -moz-box-pack:center;
+    -moz-box-align:center;
+
+    /* Safari and Chrome */
+    display:-webkit-box;
+    -webkit-box-pack:center;
+    -webkit-box-align:center;
+
+    /* W3C */
+    display:box;
+    box-pack:center;
+    box-align:center;
+}
+
+.loginBox form
+{
+    width: 50%
+    max-width: 300px;
+    min-width: 100px;
+}
+
+.loginBox input[type="text"],
+.loginBox input[type="password"]
+{
+	width: 400px;
+	max-width: 400px;
+	min-width: 200px;
+	margin: 8px;
+}
+
+.loginBox input[type="submit"]
+{
+    margin: 15px;
+    width: 100px;    
+}
 
 
