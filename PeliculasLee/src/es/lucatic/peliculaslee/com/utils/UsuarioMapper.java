@@ -2,13 +2,13 @@ package es.lucatic.peliculaslee.com.utils;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import org.springframework.jdbc.core.RowMapper;
-import es.lucatic.peliculaslee.com.domains.Usuario;
+import es.lucatic.peliculaslee.com.domains.Usuarios;
 
 
-public class UsuarioMapper implements RowMapper<Usuario> {
+public class UsuarioMapper implements RowMapper<Usuarios> {
 	
-	public Usuario mapRow(ResultSet rs, int rowNum ) throws SQLException {
-		Usuario usuario = new Usuario();
+	public Usuarios mapRow(ResultSet rs, int rowNum ) throws SQLException {
+		Usuarios usuario = new Usuarios();
 		usuario.setUsername(rs.getString("username"));
 		usuario.setNombre(rs.getString("nombre"));
 		usuario.setApellidos(rs.getString("apellidos"));

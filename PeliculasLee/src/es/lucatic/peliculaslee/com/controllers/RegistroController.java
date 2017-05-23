@@ -1,4 +1,4 @@
-package es.lucatic.peliculaslee.com.controlles;
+package es.lucatic.peliculaslee.com.controllers;
 import javax.validation.Valid;
 import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import es.lucatic.peliculaslee.com.domains.Usuarios;
-import es.lucatic.peliculaslee.com.interfaces.services.IUsuarioService;
+import es.lucatic.peliculaslee.com.service.UsuariosService;
 
 @Controller
 public class RegistroController {
@@ -27,13 +27,13 @@ public class RegistroController {
 	public ModelAndView altausuario( @Valid Usuarios usuario,  HttpServletRequest request) {
 		System.out.println( usuario.getUsername() );
 		
-		IUsuarioService usuService = new UsuarioService();
+		UsuariosService usuService = new UsuariosService();
 		
-		if( usuService.find(user) == null ){
-			Usuarios userRegistrado = usuService.create(usuario);
+		if( usuService.search(usuario) == null ){
+			usuService.add(usuario);
 			//Subo a la sesion el usuario registrado
-			request.getSession().setAttribute("usuario", userRegistrado);
-			request.setAttribute("mensaje", "Bienvenido "+userRegistrado.getUsername());
+			request.getSession().setAttribute("usuario", usuario);
+			request.setAttribute("mensaje", "Bienvenido "+usuario.getUsername());
 			
 		} else {
 			System.out.println( "El usuario ya existe." );

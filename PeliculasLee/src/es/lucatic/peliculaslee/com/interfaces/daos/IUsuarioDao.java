@@ -2,7 +2,7 @@ package es.lucatic.peliculaslee.com.interfaces.daos;
 
 import java.util.List;
 
-import es.lucatic.peliculaslee.com.domains.Usuario;
+import es.lucatic.peliculaslee.com.domains.Usuarios;
 
 /**
  * Interfaz para la clase UsuarioDao. Define las funciones utilizadas 
@@ -16,13 +16,13 @@ public interface IUsuarioDao
 	 * @param usuario Un objeto de tipo Usuario con todas sus propiedades asignadas
 	 * @return Esta funcion devuelve TRUE en caso de exito. FALSE en caso de fallo.
 	 */
-	public boolean addUsuario(Usuario usuario);
+	public boolean addUsuario(Usuarios usuario);
 	
 	/**
 	 * Devuelve una lista con todos los registros de la tabla de usuarios
 	 * @return Devuelve una lista de usuarios. En caso de fallo, esta función devuelve NULL.
 	 */
-	public List<Usuario> listUsuario();
+	public List<Usuarios> listUsuario();
 	
 	/**
 	 * Devuelve el usuario de la base de datos a partir del valor del id_usuario del objeto
@@ -32,7 +32,7 @@ public interface IUsuarioDao
 	 * @return Devuelve un objeto de tipo Usuario con todas sus propiedades asignadas. En caso de fallo
 	 * esta función devolverá NULL.
 	 */
-	public Usuario searchUsuario(Usuario usuario);
+	public Usuarios searchUsuario(Usuarios usuario);
 
 	/**
 	 * Modifica un usuario existente de la base de datos. 
@@ -40,7 +40,7 @@ public interface IUsuarioDao
 	 * debidamente inicializadas y su id_usuario debe de existir en la tabla 
 	 * @return Devuelve TRUE en caso de que la consulta se haya hecho con exito. FALSE en caso contrario.
 	 */
-	public boolean updateUsuario(Usuario usuario);
+	public boolean updateUsuario(Usuarios usuario);
 	
 	
 }
