@@ -1,4 +1,6 @@
-package es.lucatic.peliculaslee.com.controlles;
+package es.lucatic.peliculaslee.com.controllers;
+
+import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -9,7 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import es.lucatic.peliculaslee.com.domains.Peliculas;
 import es.lucatic.peliculaslee.com.domains.Usuarios;
-import es.lucatic.peliculaslee.com.interfaces.services.IUsuarioService;
+import es.lucatic.peliculaslee.com.service.PeliculasService;
 
 
 public class FiltradoAlfabetico {
@@ -21,7 +23,7 @@ public class FiltradoAlfabetico {
 		//Se recoge por parametro del href:\\Controlador?letra="letraSeleccionada" que se implementa en el html
 		String letraEscogida = request.getParameter("letra");
 		PeliculasService peliService = new PeliculasService();
-		ArrayList<Peliculas> peliculasFiltradasLetra = peliService.list(letraEscogida);
+		ArrayList<Peliculas> peliculasFiltradasLetra = (ArrayList<Peliculas>) peliService.list(letraEscogida);
 		//Subo a la nube las peliculas filtradas en arrayList
 		request.getSession().setAttribute("peliculas", peliculasFiltradasLetra);//Machaca el atributo peliculas y lo remplaza.
 		return new ModelAndView( "index" );
