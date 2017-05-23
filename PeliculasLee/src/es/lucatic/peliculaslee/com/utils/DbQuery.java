@@ -9,13 +9,13 @@
 	public static String findByIDPeliculasQuery="SELECT * FROM Peliculas WHERE idPelicula=?";
 	public static String findByTituloPeliculasQuery="SELECT * FROM peliculas WHERE titulo=?";
 	public static String findByTituloLikePeliculasQuery="SELECT * FROM peliculas WHERE titulo like ?";
-	public static String findByAñoPeliculasQuery="SELECT * FROM peliculas WHERE año=?";
+	public static String findByAï¿½oPeliculasQuery="SELECT * FROM peliculas WHERE aï¿½o=?";
 	public static String findByDirectorPeliculasQuery="SELECT * FROM peliculas WHERE director=?";
 	public static String findByUsernamePeliculasQuery="SELECT * FROM peliculas WHERE username=?";
 	public static String findAllLast12PeliculasQuery="SELECT * FROM peliculas ORDER BY fechaCreacion DESC LIMIT 12";
 	
-	public static String createPeliculasQuery="INSERT INTO peliculas(titulo,sinopsis,año,director,reparto,username) VALUES(?,?,?,?,?,?,?)";
-	public static String updatePeliculasQuery="UPDATE peliculas SET titulo=?, sinopsis=?,año=?,director=?,reparto=?,username=? WHERE idPelicula=?";
+	public static String createPeliculasQuery="INSERT INTO peliculas(titulo,sinopsis,aï¿½o,director,reparto,username) VALUES(?,?,?,?,?,?,?)";
+	public static String updatePeliculasQuery="UPDATE peliculas SET titulo=?, sinopsis=?,aï¿½o=?,director=?,reparto=?,username=? WHERE idPelicula=?";
 	public static String deletePeliculasQuery="DELETE FROM peliculas WHERE idPelicula=?";
 	
 	
