@@ -20,10 +20,13 @@ public class UsuarioRowMapper implements RowMapper<Usuario>
 	public Usuario mapRow(ResultSet resultSet, int nRows) throws SQLException 
 	{
 		Usuario usuario = new Usuario();
-		
-		usuario.setId_usuario(resultSet.getString("id_usuario"));
+
+		usuario.setUsername(resultSet.getString("username"));
+		usuario.setNombre(resultSet.getString("nombre"));
+		usuario.setApellidos(resultSet.getString("apellidos"));
 		usuario.setEmail(resultSet.getString("email"));
-		usuario.setPass(resultSet.getString("pass"));
+		usuario.setPassword(resultSet.getString("password"));
+		usuario.setImagen(resultSet.getString("imagen"));
 		
 		return usuario;
 	}
