@@ -23,6 +23,7 @@ import es.lucatic.peliculaslee.com.service.CategoriasService;
 import es.lucatic.peliculaslee.com.service.PeliculasService;
 import es.lucatic.peliculaslee.com.service.UsuariosService;
 
+/* ESTE CONTROLER FILTRA LAS PELICULAS POR CATEGORIAS*/
 @Controller
 public class FiltradoCategoriaController {
 
@@ -45,14 +46,13 @@ public class FiltradoCategoriaController {
 			int idCategoria=Integer.parseInt(request.getParameter("idCategoria"));
 			categoria.setIdCategoria(idCategoria);
 			peliculas=peliculasService.list(categoria);
+			session.setAttribute("peliculas", peliculas);
 			
 			
 			
 		
 			
 
-		ICategoriasService categoriaService= new CategoriasService();
-		
 			
 					
 			return new ModelAndView(pagina);

@@ -43,9 +43,15 @@ public class PeliculasService implements IPeliculasService {
 	}
 
 	@Override
-	public boolean updatePeliculas(Peliculas pelicula) {
+	public boolean update(Peliculas pelicula) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	@Override
+	public List<Peliculas> listb(String letra) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 
