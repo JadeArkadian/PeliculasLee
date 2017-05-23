@@ -11,7 +11,7 @@ import es.lucatic.peliculaslee.com.interfaces.daos.IUsuariosDAO;
 import es.lucatic.peliculaslee.com.utils.queriesDB;
 import es.lucatic.peliculaslee.com.utils.rowmappers.UsuariosMapper;
 
-public class UsuarioDAO implements IUsuariosDAO {
+public class UsuariosDAO implements IUsuariosDAO {
 	private DataSource dataSource;
 	private JdbcTemplate jdbcTemplateObject;
 
@@ -20,12 +20,12 @@ public class UsuarioDAO implements IUsuariosDAO {
 		this.jdbcTemplateObject = new JdbcTemplate(dataSource);
 	}
 
-	public Usuarios findUsuariosByUsername(Usuarios usuarios) {
+	public Usuarios findUsuariosByUsername(Usuarios usuario) {
 		Usuarios studentaux = null;
 		try {
 			String SQL = queriesDB.findUsuariosByUsernameQuery;
-			System.out.println("Mostrando usuarios con username" + usuarios.getUsername());
-			studentaux = jdbcTemplateObject.queryForObject(SQL, new Object[] { usuarios.getUsername() },
+			System.out.println("Mostrando usuarios con username" + usuario.getUsername());
+			studentaux = jdbcTemplateObject.queryForObject(SQL, new Object[] { usuario.getUsername() },
 					new UsuariosMapper());
 		} catch (IncorrectResultSizeDataAccessException ex) { // no encuentra
 																// nada select
@@ -39,12 +39,12 @@ public class UsuarioDAO implements IUsuariosDAO {
 		return studentaux;
 	}
 
-	public void insertUsuario(Usuarios usuarios) {
+	public void insertUsuario(Usuarios usuario) {
 		String SQL = queriesDB.insertUsuarioQuery;
 		try {
-			jdbcTemplateObject.update(SQL, usuarios.getUsername(), usuarios.getPassword(), usuarios.getNombre(),
-					usuarios.getApellidos(), usuarios.getEmail(), usuarios.getImagen());
-			System.out.println("Created usuario = " + usuarios.getUsername());
+			jdbcTemplateObject.update(SQL, usuario.getUsername(), usuario.getPassword(), usuario.getNombre(),
+					usuario.getApellidos(), usuario.getEmail(), usuario.getImagen());
+			System.out.println("Created usuario = " + usuario.getUsername());
 		} catch (DAOException e) {
 			e.getMessage();
 		} catch (Exception ex) {
@@ -53,12 +53,12 @@ public class UsuarioDAO implements IUsuariosDAO {
 		return;
 	}
 
-	public void updateUsuario(Usuarios usuarios) {
+	public void updateUsuario(Usuarios usuario) {
 		String SQL = queriesDB.updateUsuarioQuery;
 		try {
-			jdbcTemplateObject.update(SQL, usuarios.getPassword(), usuarios.getNombre(), usuarios.getApellidos(),
-					usuarios.getEmail(), usuarios.getImagen(), usuarios.getUsername());
-			System.out.println("Updated Record with Username = " + usuarios.getUsername());
+			jdbcTemplateObject.update(SQL, usuario.getPassword(), usuario.getNombre(), usuario.getApellidos(),
+					usuario.getEmail(), usuario.getImagen(), usuario.getUsername());
+			System.out.println("Updated Record with Username = " + usuario.getUsername());
 		} catch (DAOException e) {
 			e.getMessage();
 		} catch (Exception ex) {
@@ -67,11 +67,11 @@ public class UsuarioDAO implements IUsuariosDAO {
 		return;
 	}
 
-	public void deleteUsuario(Usuarios usuarios) {
+	public void deleteUsuario(Usuarios usuario) {
 		String SQL = queriesDB.deleteUsuarioQuery;
 		try {
-			jdbcTemplateObject.update(SQL, usuarios.getUsername());
-			System.out.println("Deleted Record with Username = " + usuarios.getUsername());
+			jdbcTemplateObject.update(SQL, usuario.getUsername());
+			System.out.println("Deleted Record with Username = " + usuario.getUsername());
 		} catch (DAOException e) {
 			e.getMessage();
 		} catch (Exception ex) {
