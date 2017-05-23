@@ -2,7 +2,7 @@
         
 	<!-- Main -->
 	<div id="main">
-		<div class="inner">
+		<div class="loginBox">
 
 			<form action="login.do" method="post">
 				<h1>Iniciar sesion</h1>
