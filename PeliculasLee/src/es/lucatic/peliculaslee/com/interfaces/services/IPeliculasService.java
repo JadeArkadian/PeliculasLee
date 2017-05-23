@@ -38,6 +38,7 @@ public interface IPeliculasService {
 		public List<Peliculas> list(Categorias categoria);
 		
 		public List<Peliculas> list(String letra);
+		public List<Peliculas> listb(String letra);
 		
 		public Peliculas search(Peliculas pelicula);
 
@@ -47,7 +48,7 @@ public interface IPeliculasService {
 		 * debidamente inicializadas y su id_pelicula debe de existir en la tabla 
 		 * @return Devuelve TRUE en caso de que la consulta se haya hecho con exito. FALSE en caso contrario.
 		 */
-		public boolean updatePeliculas (Peliculas pelicula);	
+		public boolean update (Peliculas pelicula);	
 
 }
 
