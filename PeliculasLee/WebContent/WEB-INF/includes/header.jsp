@@ -19,9 +19,9 @@
             <div class="inner">
                 <a href="index.html" class="logo">Theory</a>
                 <nav id="nav">
-                    <a href="index.html">Home</a>
-                    <a href="generic.html">Generic</a>
-                    <a href="elements.html">Elements</a>
+                    <a href="index.jsp">Home</a>
+                    <a href="login.jsp">Generic</a>
+                    <a href="register.jsp">Elements</a>
                 </nav>
                 <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
             </div>
