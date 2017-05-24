@@ -14,7 +14,8 @@ public class PeliculasService implements IPeliculasService {
 
 	@Override
 	public boolean add(Peliculas pelicula) {
-		// TODO Auto-generated method stub
+
+		void insertPelicula(Peliculas pelicula
 		return false;
 	}
 

@@ -30,7 +30,7 @@ public class ComentariosDAO implements IComentariosDAO {
 		this.jdbcTemplateObject = new JdbcTemplate(dataSource);
 	}
 
-	public List<ComentariosDAO> listComentarioss() {
+	public List<ComentariosDAO> listComentarios() {
 		String SQL =queriesDB.findAllComentariosQuery;
 		List<ComentariosDAO> comentarios = null;
 		try {
