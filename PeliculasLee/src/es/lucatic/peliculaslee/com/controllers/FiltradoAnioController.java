@@ -34,9 +34,9 @@ public class FiltradoAnioController {
 		
 		//Si es menor uso una Query y si es mayor uso la otra
 		if(comparar.equals("<")){
-			peliculas = peliculasService.findPeliculasWithAnioLowerThanQuery(anio);
+			peliculas = peliculasService.findPeliculasWithAnioLowerThan(anio);
 		} else if(comparar.equals(">")){
-			peliculas = peliculasService.findPeliculasWithAnioHigherThanQuery(anio);
+			peliculas = peliculasService.findPeliculasWithAnioHigherThan(anio);
 		}
 		
 		request.getSession().setAttribute("peliculas", peliculas);//Machaca el atributo peliculas y lo remplaza con las filtradas

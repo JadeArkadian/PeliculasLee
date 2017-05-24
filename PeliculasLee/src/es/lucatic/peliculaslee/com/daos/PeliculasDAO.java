@@ -102,11 +102,11 @@ public class PeliculasDAO implements IPeliculasDAO {
 		return peliculas;
 	}
 
-	public List<Peliculas> findPeliculasByDirector(int anio) {
+	public List<Peliculas> findPeliculasByDirector(String director) {
 		List<Peliculas> peliculas = null;
 		try {
 			String SQL = queriesDB.findPeliculasByDirectorQuery;
-			peliculas = jdbcTemplateObject.query(SQL, new Object[] { anio }, new PeliculasMapper());
+			peliculas = jdbcTemplateObject.query(SQL, new Object[] { director }, new PeliculasMapper());
 		} catch (IncorrectResultSizeDataAccessException ex) { // no encuentra
 																// nada select
 			System.out.println("excepcion" + ex);
@@ -145,11 +145,11 @@ public class PeliculasDAO implements IPeliculasDAO {
 		return peliculas;
 	}
 	
-	public Peliculas findPeliculasWithAnioHigherThan(int anio) {
-		Peliculas peliculaAux = null;
+	public List<Peliculas>  findPeliculasWithAnioHigherThan(int anio) {
+		List<Peliculas> peliculaAux = null;
 		try {
 			String SQL = queriesDB.findPeliculasWithAnioHigherThanQuery;
-			peliculaAux = jdbcTemplateObject.queryForObject(SQL, new Object[] { anio }, new PeliculasMapper());
+			peliculaAux = jdbcTemplateObject.query(SQL, new Object[] { anio }, new PeliculasMapper());
 		} catch (IncorrectResultSizeDataAccessException ex) { // no encuentra
 																// nada select
 			System.out.println("excepcion" + ex);
@@ -159,11 +159,11 @@ public class PeliculasDAO implements IPeliculasDAO {
 		return peliculaAux;
 	}
 	
-	public Peliculas findPeliculasWithAnioLowerThan(int anio) {
-		Peliculas peliculaAux = null;
+	public List<Peliculas> findPeliculasWithAnioLowerThan(int anio) {
+		List<Peliculas> peliculaAux = null;
 		try {
 			String SQL =queriesDB.findPeliculasWithAnioLowerThanQuery;
-			peliculaAux = jdbcTemplateObject.queryForObject(SQL, new PeliculasMapper());
+			peliculaAux = jdbcTemplateObject.query(SQL, new Object[] { anio }, new PeliculasMapper());
 		} catch (IncorrectResultSizeDataAccessException ex) { // no encuentra
 																// nada select
 			System.out.println("excepcion" + ex);
