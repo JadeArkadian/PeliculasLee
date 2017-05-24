@@ -2,11 +2,12 @@
 
         <!-- Banner -->
         <section id="banner"></section>
-        
+        <!-- MENSAJE -->
+        <p>${mensaje}
+        </p>
 			<!-- Main -->
 				<div id="main">
 					<div class="inner">
-
 					<!-- Boxes -->
 						<div class="thumbnails">
 

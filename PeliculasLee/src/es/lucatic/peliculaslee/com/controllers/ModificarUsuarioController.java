@@ -36,7 +36,7 @@ public class ModificarUsuarioController {
 					usuario.setNombre(nombre);
 					usuario.setPassword(password);
 					UsuariosService usuService = new UsuariosService();
-					usuService.update(usuario);
+					usuService.updateUsuario(usuario);
 					
 					//Subo el nuevo usuario a la nuve y le redirigo a su pagina de perfil
 					request.getSession().setAttribute("usuario", usuario);
