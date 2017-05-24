@@ -49,6 +49,8 @@ public interface IPeliculasService {
 		 * @return Devuelve TRUE en caso de que la consulta se haya hecho con exito. FALSE en caso contrario.
 		 */
 		public boolean update (Peliculas pelicula);	
+		public List<Peliculas> findPeliculasWithAnioHigherThanQuery(int anio);
+		public List<Peliculas> findPeliculasWithAnioLowerThanQuery(int anio);
 
 }
 

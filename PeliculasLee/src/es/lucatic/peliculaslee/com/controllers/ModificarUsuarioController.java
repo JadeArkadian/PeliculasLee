@@ -24,7 +24,7 @@ public class ModificarUsuarioController {
 		String nombre = request.getParameter("nombre");
 		String apellidos = request.getParameter("apellidos");
 		//Errores
-		String mensajePass = "Las contraseÃ±as deben de coincidir";
+		String mensajePass = "Las contraseñas deben de coincidir";
 		String mensajeNombre = "El campo nombre no puede estar vacio";
 		String mensajeApellido ="El campo apellido no puede estar vacio";
 		

@@ -10,7 +10,7 @@
    
     <!-- DEFINIMOS EN QUE PAQUETES ESTARAN DEFINIDOS LOS CONTROLADORES. MODELO:SPRING CONTROLADORES:CLASES VISTA:HTML -->
     <context:component-scan
-        base-package="controladores" />
+        base-package="es.lucatic.peliculaslee.com.controllers" />
    
     <!-- BEAN LLAMADO VIERESOLVER ES UNA CLASE ESTANDAR DE SPRING QUE DEFINE UNA SERIE DE PROPIEDADES. LO QUE HAY EN VALUE ES UNA CLASE QUE LE
 	ENCHUFAMOS A NAME VIEWCLASS QUE ES UNA PROPIEDAD. --> 
@@ -19,6 +19,6 @@
         <property name="viewClass"
             value="org.springframework.web.servlet.view.JstlView" />
         <property name="prefix" value="/WEB-INF/" />
-        <property name="suffix" value=".do" />
+        <property name="suffix" value=".jsp" />
     </bean>
 </beans>

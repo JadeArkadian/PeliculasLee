@@ -59,7 +59,7 @@ public class Valoraciones {
 	/**
 	 * @return the valoracion
 	 */
-	public int getValoracion() {
+	public double getValoracion() {
 		return valoracion;
 	}
 

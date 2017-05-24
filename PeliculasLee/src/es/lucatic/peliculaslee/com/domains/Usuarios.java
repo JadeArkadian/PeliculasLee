@@ -4,6 +4,7 @@ public class Usuarios {
 
 	private String username;
 	private String password;
+	private String passwordconfirm;
 	private String nombre;
 	private String apellidos;
 	private String email;
@@ -124,6 +125,14 @@ public class Usuarios {
 	 */
 	public void setImagen(String imagen) {
 		this.imagen = imagen;
+	}
+
+	public String getPasswordconfirm() {
+		return passwordconfirm;
+	}
+
+	public void setPasswordconfirm(String passwordconfirm) {
+		this.passwordconfirm = passwordconfirm;
 	}
 
 }

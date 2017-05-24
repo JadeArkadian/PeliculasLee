@@ -20,11 +20,20 @@ import es.lucatic.peliculaslee.com.service.UsuariosService;
 //ESTE CONTROLLER COMPRUEBA SI EL USUARIO Y AL CONTRASEÑA SON CORRECTAS 
 @Controller
 public class LoginController {
-
+	
+@RequestMapping( value = "/logearse", method = RequestMethod.GET )
+	
+	public ModelAndView interface_Logearse() {
+		System.out.println("ENTRAlogearse");
+		
+		/* LE REDIRECCIONAMOS A LA PAGINA Index.jsp */
+		return new ModelAndView( "login", "datosaltausuario", new Usuarios() );
+	}
+	
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	// ANOTACION DE QUE VA A RECIBIR UN PRODUCTO. SIN LA ANOTACION NO FUNCIONA
 	public ModelAndView altaUsuario(@Valid Usuarios usuario, HttpServletRequest request) {
-		String pagina = "index";
+		String pagina = "../index";
 
 		HttpServletResponse response;
 		String mensaje = "";
@@ -32,24 +41,32 @@ public class LoginController {
 
 		IUsuariosService usuarioService = new UsuariosService();
 		Usuarios aux = usuarioService.search(usuario);
-		if (aux.getUsername().equals(usuario.getUsername())) {
-			if (aux.getPassword().equals(usuario.getPassword())) {
-				// Si el usuario está en la base de datos subimos a la nube su
-				// informacion
-				session.setAttribute("usuario", usuario);
+		if (aux != null) {
+			if (aux.getUsername().equals(usuario.getUsername())) {
+				if (aux.getPassword().equals(usuario.getPassword())) {
+					// Si el usuario está en la base de datos subimos a la nube
+					// su
+					// informacion
+					session.setAttribute("usuario", usuario);
+
+				}
+			}
+
+			else {
+				mensaje = "El usuario o la contraseña no son correctas.";
+				request.setAttribute("mensaje", mensaje);
+				pagina = "login";
 
 			}
 		} else {
-			mensaje = "El usuario o la contraseña no son correctas.";
+			mensaje = "El usuario no existe.";
 			request.setAttribute("mensaje", mensaje);
-			pagina = "registrar";
-
+			pagina = "login";
 		}
-
 		return new ModelAndView(pagina);
 
 	}
-	@ModelAttribute("datoslogin")  //para el tema de validaciones hay que poner esto ademas
+	@ModelAttribute("datosUsuario")  //para el tema de validaciones hay que poner esto ademas
 	 //  "datosCoche" coincide con el <form:form method="post" action="login.do" commandName="datoslogin"> del .jsp
 	public Usuarios populateForm() {
 		 System.out.println("populateForm usuarioLogin()");
