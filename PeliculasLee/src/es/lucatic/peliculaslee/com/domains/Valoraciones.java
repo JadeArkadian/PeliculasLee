@@ -3,7 +3,7 @@ package es.lucatic.peliculaslee.com.domains;
 public class Valoraciones {
 	private int idPelicula;
 	private String username;
-	private int valoracion;
+	private double valoracion;
 
 	/**
 	 * Empty Constructor
@@ -64,11 +64,11 @@ public class Valoraciones {
 	}
 
 	/**
-	 * @param valoracion
+	 * @param d
 	 *            the valoracion to set
 	 */
-	public void setValoracion(int valoracion) {
-		this.valoracion = valoracion;
+	public void setValoracion(double d) {
+		this.valoracion = d;
 	}
 
 }

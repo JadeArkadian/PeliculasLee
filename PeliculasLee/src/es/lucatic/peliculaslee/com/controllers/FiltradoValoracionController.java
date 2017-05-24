@@ -40,8 +40,14 @@ public class FiltradoValoracionController {
 					IPeliculasService peliculasService= new PeliculasService();
 					IValoracionesService valoracionesService= new ValoracionesService();
 					Peliculas pelicula =new Peliculas();
-			
-					valoraciones=valoracionesService.listbyAVG();
+					Valoraciones valoracion=new Valoraciones();
+					
+					peliculas=peliculasService.list();
+					for(int i=0;i<peliculas.size();i++){
+						valoracion.setIdPelicula(peliculas.get(i).getIdPelicula());
+						valoracion.setValoracion(valoracionesService.searchAVG(peliculas.get(i)));
+					}
+				
 					  for(int i=0;i<valoraciones.size();i++){
 				
 						  for(int j=0;j<valoraciones.size();j++){
