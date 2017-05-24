@@ -42,12 +42,15 @@ public class FiltradoValoracionController {
 					Peliculas pelicula =new Peliculas();
 					Valoraciones valoracion=new Valoraciones();
 					
-					peliculas=peliculasService.list();
+					peliculas=peliculasService.findAllPeliculas();
+					//Aqui guardamos 1 valoracion media por cada pelicula.
 					for(int i=0;i<peliculas.size();i++){
 						valoracion.setIdPelicula(peliculas.get(i).getIdPelicula());
 						valoracion.setValoracion(valoracionesService.searchAVG(peliculas.get(i)));
+						valoraciones.add(valoracion);
 					}
 				
+					//Aqui ordenamos la valoraciones de mayor a menor valoración.
 					  for(int i=0;i<valoraciones.size();i++){
 				
 						  for(int j=0;j<valoraciones.size();j++){
@@ -62,7 +65,7 @@ public class FiltradoValoracionController {
 					  }
 					for(int i=0;i<valoraciones.size();i++){
 						pelicula.setIdPelicula(valoraciones.get(i).getIdPelicula());
-						pelicula=peliculasService.search(pelicula);
+						pelicula=peliculasService.findPeliculaByIdPelicula(pelicula);
 						peliculas.add(pelicula);
 					}
 					  
