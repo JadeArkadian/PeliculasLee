@@ -32,12 +32,11 @@
 	
 	//TABLA CATEGORIAS
 	public static String findAllCategoriasQuery="SELECT  * FROM categorias";
-	public static String findByIdCategoriaCategoriasQuery="SELECT * FROM categorias WHERE idCategoria=?";
-	public static String findByDescripcionCategoriasQuery="SELECT * FROM categorias WHERE descripcion=?";
+	public static String findCategoriaByIdCategoriaQuery="SELECT * FROM categorias WHERE idCategoria=?";
 	
-	public static String insertCategoriasQuery="INSERT INTO categorias values (?,?)";
-	public static String updateDescripcionCategoriasQuery="UPDATE categorias SET descripcion=? WHERE idCategoria=?";
-	public static String deleteCategoriasQuery="DELETE FROM peliculas WHERE idPelicula=?";
+	public static String insertCategoriaQuery="INSERT INTO categorias(descripcion) values (?)";
+	public static String updateDescripcionQuery="UPDATE categorias SET descripcion=? WHERE idCategoria=?";
+	public static String deleteCategoriaQuery="DELETE FROM peliculas WHERE idPelicula=?";
 	
 	
 	//TABLA VALORACIONES
@@ -65,10 +64,7 @@
 	
 	
 	//TABLA ADMINISTRADORES
-	public static String findByUsernameAdministradoresQuery="SELECT * FROM administradores WHERE username=?";
-	
-	public static String insertAdministradoresQuery="INSERT INTO administradores VALUES (?)";
-	
+	public static String findAdministradoresByUsernameQuery="SELECT * FROM administradores WHERE username=?";	
 	
 	
 	//TABLA USUARIOS

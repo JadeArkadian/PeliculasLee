@@ -55,6 +55,12 @@ public class PeliculasService implements IPeliculasService {
 	}
 
 
+	public List<Peliculas> findPeliculasWithAnioHigherThanQuery(int anio){
+		return null;
+	}
 	
+	public List<Peliculas> findPeliculasWithAnioLowerThanQuery(int anio){
+		return null;
+	}
 
 }

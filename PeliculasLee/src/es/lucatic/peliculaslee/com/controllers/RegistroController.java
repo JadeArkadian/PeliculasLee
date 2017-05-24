@@ -14,11 +14,13 @@ import es.lucatic.peliculaslee.com.service.UsuariosService;
 public class RegistroController {
 	
 	// MAPEO usado en el form
-	@RequestMapping( value = "/registro", method = RequestMethod.GET )
+	@RequestMapping( value = "/register", method = RequestMethod.GET )
 	
 	public ModelAndView interface_altaUsuario() {
+		System.out.println("ENTRAinterface_altaUsuario");
+		
 		/* LE REDIRECCIONAMOS A LA PAGINA Index.jsp */
-		return new ModelAndView( "index", "datosaltausuario", new Usuarios() );
+		return new ModelAndView( "register", "datosaltausuario", new Usuarios() );
 	}
 	
 	// METODO QUE RECOGE LOS DATOS DEL FORMULARIO
@@ -26,6 +28,7 @@ public class RegistroController {
 	@RequestMapping( value = "/addaltausuario", method = RequestMethod.POST )
 	// ANOTACION DE QUE VA A RECIBIR UN Usuario. SIN LA ANOTACION NO FUNCIONA
 	public ModelAndView altausuario( @Valid Usuarios usuario,  HttpServletRequest request) {
+		System.out.println("ENTRAaltausuario");
 		System.out.println( usuario.getUsername() );
 		
 		UsuariosService usuService = new UsuariosService();
@@ -35,18 +38,21 @@ public class RegistroController {
 			//Subo a la sesion el usuario registrado
 			request.getSession().setAttribute("usuario", usuario);
 			request.setAttribute("mensaje", "Bienvenido "+usuario.getUsername());
+			System.out.println("altausuario");
 			
 		} else {
 			System.out.println( "El usuario ya existe." );
 			request.setAttribute("mensaje", "Error al realizar el registro");
+			return new ModelAndView( "registro" );
 		}
 		
-		return new ModelAndView( "index" );
+		return new ModelAndView( "../index" );
 	}
 	
 	@ModelAttribute("datosUsuario")  
 	//  "datosCoche" coincide con el <form:form method="post" action="registro" commandName="datosUsuario"> del .jsp
 	public Usuarios populateForm() {
+		
 		 System.out.println("populateForm()");
 	     return new Usuarios(); // creamos el bean para que se pueda popular
 	}

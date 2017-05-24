@@ -1,4 +1,4 @@
-<%@include file="WEB-INF/includes/header.jsp" %>
+<%@include file="includes/header.jsp" %>
         
 	<!-- Main -->
 	<div id="main">
@@ -19,7 +19,7 @@
 			           
 					<div>
 						<input type="submit" value="Log in" />
-						<a href="register.jsp">Crear usuario</a>
+						<a href="register.do">Crear usuario</a>
 					</div>
 					
 				</form:form>
@@ -54,5 +54,5 @@
 	</div>
 
 
-<%@include file="WEB-INF/includes/footer.jsp" %>
+<%@include file="includes/footer.jsp" %>
 

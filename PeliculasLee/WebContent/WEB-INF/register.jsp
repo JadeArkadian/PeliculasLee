@@ -1,11 +1,11 @@
-<%@include file="WEB-INF/includes/header.jsp" %>
+<%@include file="includes/header.jsp" %>
    
 	<!-- Main -->
 	<div id="main">
 		<div class="registerBox">
 		
 		
-		<form:form method="post" action="register.do" commandName="datosUsuario">
+		<form:form method="post" action="addaltausuario.do" commandName="datosUsuario">
 		
 			<h1>Nuevo usuario</h1>          
                <table>
@@ -26,8 +26,8 @@
                   <tr>
                    		<td> <form:label path="password">Password</form:label></td> 
                    		<td> <form:password path="password" /> </td>
-                   		<td> <form:label path="passwordConfirm">Confirmar password</form:label></td> 
-                   		<td> <form:password path="passwordConfirm" /> </td>
+                   	<td> <form:label path="passwordconfirm">Confirmar password</form:label></td> 
+                   		<td> <form:password path="passwordconfirm" /> </td> 
                   </tr>
                    	
                    <tr>
@@ -64,5 +64,5 @@
 	
 	
 
-<%@include file="WEB-INF/includes/footer.jsp" %>
+<%@include file="includes/footer.jsp" %>
 
