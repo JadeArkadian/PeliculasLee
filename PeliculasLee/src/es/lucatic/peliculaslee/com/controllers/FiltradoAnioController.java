@@ -30,7 +30,7 @@ public class FiltradoAnioController {
 
 		int anio = Integer.valueOf(request.getParameter("anio"));
 		String comparar = request.getParameter("comparar");	
-		pelicula.setAño(anio);
+		pelicula.setAnio(anio);
 		
 		//Si es menor uso una Query y si es mayor uso la otra
 		if(comparar.equals("<")){
