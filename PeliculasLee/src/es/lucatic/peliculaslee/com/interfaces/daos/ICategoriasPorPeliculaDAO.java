@@ -1,5 +1,5 @@
 package es.lucatic.peliculaslee.com.interfaces.daos;
 
-public interface ICategoriasPorPeliculaDAO implements DAOException{
+public interface ICategoriasPorPeliculaDAO{
 
 }

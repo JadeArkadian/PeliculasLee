@@ -16,7 +16,7 @@
 	public static String findPeliculasWithAnioHigherThanQuery="SELECT * FROM peliculas WHERE anio>?";
 	public static String findPeliculasWithAnioLowerThanQuery="SELECT * FROM peliculas WHERE anio<?";
 	
-	public static String createPeliculasQuery="INSERT INTO peliculas(titulo,sinopsis,anio,director,reparto,username) VALUES(?,?,?,?,?,?,?)";
+	public static String insertPeliculaQuery="INSERT INTO peliculas(titulo,sinopsis,anio,director,reparto,username) VALUES(?,?,?,?,?,?,?)";
 	public static String updatePeliculasQuery="UPDATE peliculas SET titulo=?, sinopsis=?,anio=?,director=?,reparto=?,username=? WHERE idPelicula=?";
 	public static String deletePeliculasQuery="DELETE FROM peliculas WHERE idPelicula=?";
 	
