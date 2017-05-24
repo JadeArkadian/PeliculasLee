@@ -14,7 +14,7 @@ public class PeliculasMapper implements RowMapper<Peliculas> {
       peliculas.setTitulo(rs.getString("titulo"));
       peliculas.setImagen(rs.getString("imagen"));
       peliculas.setSinopsis(rs.getString("sinopsis"));
-      peliculas.setAño(rs.getInt("año"));
+      peliculas.setAnio(rs.getInt("anio"));
       peliculas.setDirector(rs.getString("director"));
       peliculas.setReparto(rs.getString("reparto"));
       peliculas.setUsername(rs.getString("username"));

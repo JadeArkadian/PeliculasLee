@@ -7,7 +7,7 @@ public class Peliculas {
 	private String titulo;
 	private String imagen;
 	private String sinopsis;
-	private int año;
+	private int anio;
 	private String director;
 	private String reparto;
 	private String username;
@@ -28,20 +28,20 @@ public class Peliculas {
 	 * @param titulo
 	 * @param imagen
 	 * @param sinopsis
-	 * @param año
+	 * @param anio
 	 * @param director
 	 * @param reparto
 	 * @param username
 	 * @param fechaCreacion
 	 */
-	public Peliculas(int idPelicula, String titulo, String imagen, String sinopsis, int año, String director, String reparto,
+	public Peliculas(int idPelicula, String titulo, String imagen, String sinopsis, int anio, String director, String reparto,
 			String username, Date fechaCreacion) {
 		super();
 		this.idPelicula = idPelicula;
 		this.titulo = titulo;
 		this.imagen = imagen;
 		this.sinopsis = sinopsis;
-		this.año = año;
+		this.anio = anio;
 		this.director = director;
 		this.reparto = reparto;
 		this.username = username;
@@ -108,18 +108,18 @@ public class Peliculas {
 	}
 
 	/**
-	 * @return the año
+	 * @return the anio
 	 */
-	public int getAño() {
-		return año;
+	public int getAnio() {
+		return anio;
 	}
 
 	/**
-	 * @param año
-	 *            the año to set
+	 * @param anio
+	 *            the anio to set
 	 */
-	public void setAño(int año) {
-		this.año = año;
+	public void setAnio(int anio) {
+		this.anio = anio;
 	}
 
 	/**
