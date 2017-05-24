@@ -173,9 +173,6 @@ public class PeliculasDAO implements IPeliculasDAO {
 		return peliculaAux;
 	}
 	
-	
-	
-	
 	public void insertPelicula(Peliculas pelicula) {
 		String SQL = queriesDB.insertPeliculaQuery;
 		try {
