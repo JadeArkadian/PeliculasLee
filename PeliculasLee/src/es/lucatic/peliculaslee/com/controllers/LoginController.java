@@ -40,15 +40,16 @@ public class LoginController {
 		HttpSession session = request.getSession(true);
 
 		IUsuariosService usuarioService = new UsuariosService();
-		Usuarios aux = usuarioService.search(usuario);
+		Usuarios aux = usuarioService.findUsuariosByUsername(usuario);
 		if (aux != null) {
 			if (aux.getUsername().equals(usuario.getUsername())) {
 				if (aux.getPassword().equals(usuario.getPassword())) {
 					// Si el usuario está en la base de datos subimos a la nube
 					// su
 					// informacion
-					session.setAttribute("usuario", usuario);
-
+					session.setAttribute("usuario", aux);
+					mensaje = "Bienvenido "+aux.getNombre();
+					request.setAttribute("mensaje", mensaje);
 				}
 			}
 
@@ -63,13 +64,18 @@ public class LoginController {
 			request.setAttribute("mensaje", mensaje);
 			pagina = "login";
 		}
-		return new ModelAndView(pagina);
+		ModelAndView modelandviewAux = new ModelAndView(pagina);
+		System.out.println("Login: "+mensaje);
+		modelandviewAux.addObject(mensaje);
+		modelandviewAux.addObject(request);
+		return modelandviewAux;
+		
 
 	}
 	@ModelAttribute("datosUsuario")  //para el tema de validaciones hay que poner esto ademas
 	 //  "datosCoche" coincide con el <form:form method="post" action="login.do" commandName="datoslogin"> del .jsp
 	public Usuarios populateForm() {
-		 System.out.println("populateForm usuarioLogin()");
+		// System.out.println("populateForm usuarioLogin()");
 	     return new Usuarios(); // creamos el bean para que se pueda popular
 	}
 

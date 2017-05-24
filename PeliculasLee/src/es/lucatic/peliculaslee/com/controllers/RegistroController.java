@@ -28,25 +28,32 @@ public class RegistroController {
 	@RequestMapping( value = "/addaltausuario", method = RequestMethod.POST )
 	// ANOTACION DE QUE VA A RECIBIR UN Usuario. SIN LA ANOTACION NO FUNCIONA
 	public ModelAndView altausuario( @Valid Usuarios usuario,  HttpServletRequest request) {
-		System.out.println("ENTRAaltausuario");
-		System.out.println( usuario.getUsername() );
+		//System.out.println("ENTRAaltausuario");
+		//System.out.println( usuario.getUsername() );
+		String mensaje="";
 		
 		UsuariosService usuService = new UsuariosService();
 		//Si no existe el usuario lo creo, con su respectivo mensaje.
-		if( usuService.search(usuario) == null ){
-			usuService.add(usuario);
+		if( usuService.findUsuariosByUsername(usuario) == null ){
+			usuService.insertUsuario(usuario);
 			//Subo a la sesion el usuario registrado
 			request.getSession().setAttribute("usuario", usuario);
-			request.setAttribute("mensaje", "Bienvenido "+usuario.getUsername());
+			mensaje = "Bienvenido "+usuario.getUsername();
+			request.setAttribute("mensaje", mensaje);
 			System.out.println("altausuario");
 			
 		} else {
 			System.out.println( "El usuario ya existe." );
-			request.setAttribute("mensaje", "Error al realizar el registro");
+			mensaje =  "Error al realizar el registro";
+			request.setAttribute("mensaje",mensaje);
 			return new ModelAndView( "registro" );
 		}
-		
-		return new ModelAndView( "../index" );
+		ModelAndView modelandviewAux = new ModelAndView("../index");
+		System.out.println(mensaje);
+		modelandviewAux.addObject(mensaje);
+		modelandviewAux.addObject(request);
+		return modelandviewAux;
+	
 	}
 	
 	@ModelAttribute("datosUsuario")  
