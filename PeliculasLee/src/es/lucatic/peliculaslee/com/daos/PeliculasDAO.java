@@ -208,4 +208,10 @@ public class PeliculasDAO implements IPeliculasDAO {
 		return;
 	}
 
+	@Override
+	public List<Peliculas> findPeliculaByLetra(String letraEscogida) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

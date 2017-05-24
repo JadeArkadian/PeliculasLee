@@ -4,9 +4,15 @@ import java.util.List;
 
 import es.lucatic.peliculaslee.com.domains.Categorias;
 import es.lucatic.peliculaslee.com.domains.CategoriasPorPelicula;
+import es.lucatic.peliculaslee.com.domains.Peliculas;
 
 public interface ICategoriasPorPeliculaService {
 
-	List<CategoriasPorPelicula> findByCategoria(Categorias categoria);
+	
+	public List<CategoriasPorPelicula> findCategoriasPorPeliculaByIdPelicula(Peliculas pelicula) ;
+	public List<CategoriasPorPelicula> findCategoriasPorPeliculaByIdCategoria(Categorias categoria);
+	
+	public void insert(CategoriasPorPelicula categoriaPorPelicula) ;
+	public void delete(CategoriasPorPelicula categoriaPorPelicula) ;
 
 }

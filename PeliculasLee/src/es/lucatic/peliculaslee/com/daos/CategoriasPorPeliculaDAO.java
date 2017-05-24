@@ -7,14 +7,16 @@ import javax.sql.DataSource;
 import org.springframework.dao.IncorrectResultSizeDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import es.lucatic.peliculaslee.com.domains.Categorias;
 import es.lucatic.peliculaslee.com.domains.CategoriasPorPelicula;
 import es.lucatic.peliculaslee.com.domains.Peliculas;
 import es.lucatic.peliculaslee.com.interfaces.daos.ICategoriasDAO;
+import es.lucatic.peliculaslee.com.interfaces.daos.ICategoriasPorPeliculaDAO;
 import es.lucatic.peliculaslee.com.utils.queriesDB;
 import es.lucatic.peliculaslee.com.utils.rowmappers.CategoriasPorPeliculaMapper;
 
 
-public class CategoriasPorPeliculaDAO implements ICategoriasDAO {
+public class CategoriasPorPeliculaDAO implements ICategoriasPorPeliculaDAO {
 	private DataSource dataSource;
 	private JdbcTemplate jdbcTemplateObject;
 
@@ -40,6 +42,18 @@ public class CategoriasPorPeliculaDAO implements ICategoriasDAO {
 		return categoriasEnLaPelicula;
 	}
 	
+	public List<CategoriasPorPelicula> findCategoriasPorPeliculaByIdCategoria(Categorias categoria) {
+		String SQL = queriesDB.findCategoriasPorPeliculaByIdCategoriaQuery;
+		List<CategoriasPorPelicula> categoriasEnLaPelicula = null;
+		try {
+			categoriasEnLaPelicula = jdbcTemplateObject.query(SQL, new Object[] {categoria.getIdCategoria()}, new CategoriasPorPeliculaMapper());
+		} catch (IncorrectResultSizeDataAccessException ex) { //no encuentra nada select
+			System.out.println("excepcion" + ex);
+		} catch (Exception ex) {
+			System.out.println("excepcion" + ex);
+		}
+		return categoriasEnLaPelicula;
+	}
 	
 	public void insert(CategoriasPorPelicula categoriaPorPelicula) {
 		String SQL = queriesDB.insertCategoriaQuery;

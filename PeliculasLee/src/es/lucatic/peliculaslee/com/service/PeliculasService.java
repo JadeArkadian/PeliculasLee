@@ -283,7 +283,7 @@ public class PeliculasService implements IPeliculasService {
 		}
 			catch(DAOException e){
 			
-				throw new ServiceException("Problema en updatePelicula  "+e.getMessage());
+				throw new ServiceException("Problema en deletePelicula  "+e.getMessage());
 			}
 	}
 		

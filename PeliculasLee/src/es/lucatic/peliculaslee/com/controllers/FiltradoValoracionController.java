@@ -28,7 +28,7 @@ public class FiltradoValoracionController {
 		}
 	
 		// TODO Auto-generated constructor stub
-				@RequestMapping( value = "/filtrarByvaloracion",method = RequestMethod.POST )
+				@RequestMapping( value = "/filtrarByValoracion",method = RequestMethod.POST )
 				
 				public ModelAndView filtrarByValoracion(HttpServletRequest request) {
 					String mensaje="";
