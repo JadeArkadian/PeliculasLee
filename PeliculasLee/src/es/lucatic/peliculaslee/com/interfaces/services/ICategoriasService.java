@@ -7,7 +7,7 @@ import es.lucatic.peliculaslee.com.domains.Categorias;
 public interface ICategoriasService {
 	
 
-
+	public Categorias findByIdCategoria(Categorias categoria);
 
 	/**
 	 * Interfaz para la clase CategoriaService. Define las funciones utilizadas 

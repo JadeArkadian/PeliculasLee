@@ -38,6 +38,12 @@ public class CategoriasService implements ICategoriasService {
 		return false;
 	}
 
+	@Override
+	public Categorias findByIdCategoria(Categorias categoria) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 	
 
