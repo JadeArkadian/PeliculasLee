@@ -23,10 +23,10 @@
 	
 	
 	//TABLA CATEGORIASPORPELICULA	
-	public static String findByIdPeliculaCategoriasPorPeliculaQuery="SELECT * FROM categoriasporpelicula WHERE idPelicula=?";
-	public static String findByIdCategoriaCategoriasPorPeliculaQuery="SELECT * FROM categoriasporpelicula WHERE idCategoria=?";
-	public static String insertCategoriasPorPeliculaQuery="INSERT INTO categoriasporpelicula values (?,?)";
+	public static String findCategoriasPorPeliculaByIdPeliculaQuery="SELECT * FROM categoriasporpelicula WHERE idPelicula=?";
+	public static String findCategoriasPorPeliculaByIdCategoriaQuery="SELECT * FROM categoriasporpelicula WHERE idCategoria=?";
 	
+	public static String insertCategoriasPorPeliculaQuery="INSERT INTO categoriasporpelicula values (?,?)";
 	public static String deleteCategoriasPorPeliculaQuery="DELETE FROM peliculas WHERE idPelicula=?";
 	
 	
@@ -53,13 +53,13 @@
 	
 	//TABLA COMENTARIOS
 	public static String findAllComentariosQuery="SELECT  * FROM comentarios";
-	public static String findByIdPeliculaAndUsernameComentariosQuery="SELECT * FROM comentarios WHERE idPelicula=? AND username=?";
-	public static String findByIdPeliculaComentariosQuery="SELECT * FROM comentarios WHERE idPelicula=?";
-	public static String findByUsernameComentariosQuery="SELECT * FROM comentarios WHERE username=?";
+	public static String findComentarioByIdPeliculaAndUsernameQuery="SELECT * FROM comentarios WHERE idPelicula=? AND username=?";
+	public static String findComentariosByIdPeliculaQuery="SELECT * FROM comentarios WHERE idPelicula=?";
+	public static String findComentariosByUsernameQuery="SELECT * FROM comentarios WHERE username=?";
 	public static String countComentariosByIdPeliculaQuery="SELECT COUNT(*) FROM comentarios where idPelicula=?";
 	
-	public static String insertComentariosQuery="INSERT INTO comentarios(idPelicula,username,comentario) values (?,?,?)";
-	public static String deleteComentariosQuery="DELETE FROM peliculas WHERE idPelicula=?";
+	public static String insertComentarioQuery="INSERT INTO comentarios(idPelicula,username,comentario) values (?,?,?)";
+	public static String deleteComentarioQuery="DELETE FROM peliculas WHERE idPelicula=? AND username=?";
 	
 	
 	
