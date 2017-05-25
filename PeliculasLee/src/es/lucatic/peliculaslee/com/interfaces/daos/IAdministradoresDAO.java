@@ -1,5 +1,8 @@
 package es.lucatic.peliculaslee.com.interfaces.daos;
 
-public interface IAdministradoresDAO{
+import es.lucatic.peliculaslee.com.domains.Administradores;
+import es.lucatic.peliculaslee.com.exceptions.DAOException;
 
+public interface IAdministradoresDAO{
+	public Administradores findById(Administradores administrador) throws DAOException;
 }

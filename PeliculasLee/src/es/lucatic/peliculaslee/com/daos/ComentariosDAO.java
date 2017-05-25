@@ -12,13 +12,9 @@ import es.lucatic.peliculaslee.com.interfaces.daos.IComentariosDAO;
 import es.lucatic.peliculaslee.com.utils.queriesDB;
 import es.lucatic.peliculaslee.com.utils.rowmappers.ComentariosMapper;
 
-import java.util.List;
-import javax.sql.DataSource;
-import org.springframework.jdbc.core.JdbcTemplate;
-
 public class ComentariosDAO implements IComentariosDAO {
 	private DataSource dataSource;
-	private JdbcTemplate jdbcTemplateObject;
+	private static JdbcTemplate jdbcTemplateObject;
 
 	// public Client findById(Client client);
 
@@ -55,7 +51,6 @@ public class ComentariosDAO implements IComentariosDAO {
 		} catch (Exception ex) {
 			System.out.println("excepcion" + ex);
 		}
-		System.out.println("desp");
 		return comentarioAux;
 	}
 
@@ -105,7 +100,7 @@ public class ComentariosDAO implements IComentariosDAO {
 		return numComentarios;
 	}
 	
-	public void insertComentarios(Comentarios comentario) {
+	public void insertComentario(Comentarios comentario) {
 		String SQL = queriesDB.insertComentarioQuery;
 		try {
 			jdbcTemplateObject.update(SQL, comentario.getIdPelicula(),comentario.getUsername(), comentario.getComentario());

@@ -15,7 +15,7 @@ import es.lucatic.peliculaslee.com.utils.rowmappers.CategoriasMapper;
 
 public class CategoriasDAO implements ICategoriasDAO {
 	private DataSource dataSource;
-	private JdbcTemplate jdbcTemplateObject;
+	private static JdbcTemplate jdbcTemplateObject;
 
 	// public Client findById(Client client);
 

@@ -40,15 +40,15 @@
 	
 	
 	//TABLA VALORACIONES
-	public static String findByIdPeliculaAndUsernameValoracionesQuery="SELECT * FROM valoraciones WHERE idPelicula=? AND username=?";
-	public static String findByIdPeliculaValoracionesQuery="SELECT * FROM valoraciones WHERE idPelicula=?";
-	public static String findByUsernameValoracionesQuery="SELECT * FROM valoraciones WHERE username=?";
-	public static String countValoracionesByValoracionAndPeliculaValoracionesQuery="SELECT COUNT(valoracion) FROM valoraciones WHERE idPelicula=? AND valoracion=?";
-	public static String countValoracionesQuery="SELECT COUNT(valoracion) FROM valoraciones WHERE idPelicula=?";
+	public static String findValoracionesByIdPeliculaAndUsernameQuery="SELECT * FROM valoraciones WHERE idPelicula=? AND username=?";
+	public static String findValoracionesByIdPeliculaQuery="SELECT * FROM valoraciones WHERE idPelicula=?";
+	public static String findValoracionesByUsernameQuery="SELECT * FROM valoraciones WHERE username=?";
+	public static String countValoracionesByValoracionAndPeliculaQuery="SELECT COUNT(valoracion) FROM valoraciones WHERE idPelicula=? AND valoracion=?";
+	public static String countValoracionesByIdPeliculaQuery="SELECT COUNT(valoracion) FROM valoraciones WHERE idPelicula=?";
 	public static String avgValoracionesByPeliculaQuery="SELECT AVG(valoracion) 'mediaValoracion' FROM valoraciones WHERE idPelicula=?";
 	
-	public static String insertValoracionesQuery="INSERT INTO valoraciones values (?,?)";
-	public static String deleteValoracionesQuery="DELETE FROM peliculas WHERE idPelicula=?";
+	public static String insertValoracionQuery="INSERT INTO valoraciones values (?,?)";
+	public static String deleteValoracionQuery="DELETE FROM peliculas WHERE idPelicula=?";
 	
 	
 	//TABLA COMENTARIOS
