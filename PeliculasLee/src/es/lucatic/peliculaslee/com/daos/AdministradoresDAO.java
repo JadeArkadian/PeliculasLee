@@ -1,7 +1,5 @@
 package es.lucatic.peliculaslee.com.daos;
 
-import java.util.List;
-
 import javax.sql.DataSource;
 
 import org.springframework.dao.IncorrectResultSizeDataAccessException;
@@ -15,7 +13,7 @@ import es.lucatic.peliculaslee.com.utils.rowmappers.AdministradoresMapper;
 
 public class AdministradoresDAO implements IAdministradoresDAO {
 	private DataSource dataSource;
-	private JdbcTemplate jdbcTemplateObject;
+	private static JdbcTemplate jdbcTemplateObject;
 
 	// public Client findById(Client client);
 

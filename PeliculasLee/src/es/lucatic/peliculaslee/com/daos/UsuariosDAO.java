@@ -13,7 +13,7 @@ import es.lucatic.peliculaslee.com.utils.rowmappers.UsuariosMapper;
 
 public class UsuariosDAO implements IUsuariosDAO {
 	private DataSource dataSource;
-	private JdbcTemplate jdbcTemplateObject;
+	private static JdbcTemplate jdbcTemplateObject;
 
 	public void setDataSource(DataSource dataSource) {
 		this.dataSource = dataSource;
