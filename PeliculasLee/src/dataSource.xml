@@ -1,18 +1,23 @@
-<?xml version="1.0" encoding="UTF-8"?> 
-<beans xmlns="http://www.springframework.org/schema/beans" 
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"> 
-   
-  <!-- Inicializacion para dataSource --> 
-  <bean id="dataSource" 
-      class="org.springframework.jdbc.datasource.DriverManagerDataSource"> 
-     <property name="driverClassName" value="com.mysql.jdbc.Driver" /> 
-      <property name="url" value="jdbc:mysql://localhost:3306/curso" /> 
-      <property name="username" value="root" /> 
-      <property name="password" value="1111" /> 
-      
-  </bean> 
- 
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+		http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.2.xsd">
+
+	<bean id="transactionManager"
+        class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+	
+	<bean name="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" lazy-init="true" primary="false">
+		<property name="url" value="jdbc:mysql://localhost:3306/peliculaslee"></property>
+		<property name="password" value="1111"></property>
+		<property name="username" value="root"></property>
+		<property name="driverClassName"
+			value="com.mysql.jdbc.Driver">
+		</property>
+	</bean>
  
   <!-- Definicion para AdministradoresDAO --> 
   <bean id="AdministradoresDAO" class="es.lucatic.peliculaslee.com.daos.AdministradoresDAO"> 
@@ -49,6 +54,5 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.sprin
     <property name="dataSource" ref="dataSource" /> 
   </bean> 
    
- 
    
 </beans>
