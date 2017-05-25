@@ -1,51 +1,61 @@
 package es.lucatic.peliculaslee.com.daos;
 
-import java.sql.Connection;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import es.lucatic.peliculaslee.com.interfaces.daos.ICategoriasDAO;
-import es.lucatic.peliculaslee.com.interfaces.daos.ICategoriasPorPeliculaDAO;
-import es.lucatic.peliculaslee.com.interfaces.daos.IComentariosDAO;
-import es.lucatic.peliculaslee.com.interfaces.daos.IPeliculasDAO;
-import es.lucatic.peliculaslee.com.interfaces.daos.IUsuariosDAO;
-import es.lucatic.peliculaslee.com.interfaces.daos.IValoracionesDAO;
-
-import es.lucatic.peliculaslee.com.daos.*;
-
-// Esta clase la va a utilizar el service. Cuando me creo un objeto de esta clase, crea la conexion automaticamente
-
-public class TransactionManager {
+/**
+ * Reorganizado TransactionManager para crear los beans y conexion en lugar de hacerlo
+ * en los Services.
+ * @author Jade Arkadian
+ *
+ */
+public class TransactionManager 
+{
 	
-	public TransactionManager() {
+	private ApplicationContext context;
 	
+	
+	public TransactionManager() 
+	{
+		this.context = new ClassPathXmlApplicationContext("dataSource.xml");
 	}
 	
 	//Metodos que devuelve un DAO
-	public IPeliculasDAO getPeliculasDAO(){
-		 return new PeliculasDAO();
+	public PeliculasDAO getPeliculasDAO()
+	{
+		PeliculasDAO peliculasDAO = context.getBean("PeliculasDAO",PeliculasDAO.class);
+		return peliculasDAO;
 	}
 	
-	public IUsuariosDAO getUsuarioDAO(){
-		return new UsuariosDAO();
+	public UsuariosDAO getUsuarioDAO()
+	{
+		UsuariosDAO usuariosDao = context.getBean("UsuariosDAO",UsuariosDAO.class);
+		return usuariosDao;
 	}
 	
+	public CategoriasDAO getCategoriasDAO()
+	{
+		CategoriasDAO categoriasDAO = context.getBean("CategoriasDAO",CategoriasDAO.class);
+		return categoriasDAO;
+	}
+	
+	public ComentariosDAO getComentariosDAO()
+	{
+		ComentariosDAO comentariosDAO = context.getBean("ComentariosDAO",ComentariosDAO.class);
+		return comentariosDAO;
+	}
 
 	
-	public ICategoriasDAO getCategoriasDAO(){
-		return new CategoriasDAO();
-	}
-	public IComentariosDAO getComentariosDAO(){
-		return new ComentariosDAO();
-	}
-
-	
-	public ICategoriasPorPeliculaDAO getCategoriasPorPeliculaDAO() {
-		// TODO Auto-generated method stub
-		return new CategoriasPorPeliculaDAO();
+	public CategoriasPorPeliculaDAO getCategoriasPorPeliculaDAO() 
+	{
+		CategoriasPorPeliculaDAO categoriasPorPeliculaDAO = context.getBean("CategoriasPorPeliculaDAO",CategoriasPorPeliculaDAO.class);
+		return categoriasPorPeliculaDAO;
 	}
 
-	public IValoracionesDAO getValoracionesDAO() {
-		// TODO Auto-generated method stub
-		return new ValoracionesDAO();
+	public ValoracionesDAO getValoracionesDAO() 
+	{
+		ValoracionesDAO valoracionesDAO = context.getBean("ValoracionesDAO",ValoracionesDAO.class);
+		return valoracionesDAO;
 	}
 	
 }
