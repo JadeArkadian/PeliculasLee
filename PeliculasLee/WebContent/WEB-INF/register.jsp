@@ -31,14 +31,13 @@
                   </tr>
                    	
                    <tr>
-                   		<td colspan="3"> <form:label path="email">Email</form:label></td>  
-                   		<td> <form:input path="email" /> </td>      
-                   		<td>Email</td>
+                   		<td> <form:label path="email">Email</form:label></td>  
+                   		<td colspan="3"> <form:input path="email" /> </td>      
                    </tr>
                
                </table>
            	<div class="registerRow">
-				<input type="submit" value="Registrar" />
+				<input class="special" type="submit" value="Registrar" />
 			</div>
 			
 		</form:form>
