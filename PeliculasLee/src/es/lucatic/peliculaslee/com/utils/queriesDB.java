@@ -12,7 +12,7 @@
 	public static String findPeliculasByAnioQuery="SELECT * FROM peliculas WHERE anio=?";
 	public static String findPeliculasByDirectorQuery="SELECT * FROM peliculas WHERE director=?";
 	public static String findPeliculasByUsernameQuery="SELECT * FROM peliculas WHERE username=?";
-	public static String findLast12PeliculasQuery="SELECT * FROM peliculas ORDER BY fechaCreacion DESC LIMIT 12";
+	public static String findLast12PeliculasQuery="SELECT * FROM peliculas ORDER BY idPelicula DESC LIMIT 12";
 	public static String findPeliculasWithAnioHigherThanQuery="SELECT * FROM peliculas WHERE anio>?";
 	public static String findPeliculasWithAnioLowerThanQuery="SELECT * FROM peliculas WHERE anio<?";
 	

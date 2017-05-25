@@ -13,9 +13,9 @@ import es.lucatic.peliculaslee.com.interfaces.services.IUsuariosService;
 public class UsuariosService implements IUsuariosService {
 private IUsuariosDAO usuarioDAO;
 	
-	public UsuariosService() {
-		ApplicationContext context = new ClassPathXmlApplicationContext("dataSource.xml");
-		usuarioDAO = (IUsuariosDAO) context.getBean("UsuariosDAO");
+	public UsuariosService() 
+	{
+		
 	}
 
 	@Override

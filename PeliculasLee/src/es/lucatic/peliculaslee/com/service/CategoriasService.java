@@ -17,8 +17,9 @@ import es.lucatic.peliculaslee.com.interfaces.services.IUsuariosService;
 
 public class CategoriasService implements ICategoriasService {
 
-	public CategoriasService() {
-		// TODO Auto-generated constructor stub
+	public CategoriasService() 
+	{
+		
 	}
 
 	@Override

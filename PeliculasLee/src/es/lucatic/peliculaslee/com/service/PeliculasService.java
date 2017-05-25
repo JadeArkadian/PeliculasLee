@@ -20,8 +20,8 @@ import es.lucatic.peliculaslee.com.utils.rowmappers.PeliculasMapper;
 
 public class PeliculasService implements IPeliculasService {
 
-	public PeliculasService() {
-		// TODO Auto-generated constructor stub
+	public PeliculasService() 
+	{
 	}
 
 	@Override
@@ -29,23 +29,24 @@ public class PeliculasService implements IPeliculasService {
 		
 		TransactionManager daoManager=null;
 		
-		try{
+		try
+		{
 			daoManager=new TransactionManager();
 			IPeliculasDAO peliculaDAO=daoManager.getPeliculasDAO();
-			if(pelicula!=null){
-				peliculaDAO.insertPelicula(pelicula);
-				
+			
+			if(pelicula!=null)
+			{
+				peliculaDAO.insertPelicula(pelicula);	
 			}
-			else{
-			
-				throw new ServiceException( "La pelicula que se quiere añadir es un NULL");
-			
+			else
+			{
+				throw new ServiceException( "La pelicula que se quiere aï¿½adir es un NULL");		
 			}
 		}
-			catch(DAOException e){
-			
-				throw new ServiceException(e.getMessage());
-			}
+		catch(DAOException e)
+		{	
+			throw new ServiceException(e.getMessage());
+		}
 		
 	}
 
@@ -53,45 +54,43 @@ public class PeliculasService implements IPeliculasService {
 	public List<Peliculas> findAllPeliculas() throws ServiceException {
 		TransactionManager daoManager = null;
 		List<Peliculas>  peliculas = new ArrayList<Peliculas>();
-		try {
-			
+		try 
+		{
+				System.out.println("hola1");
 				daoManager = new TransactionManager();
 				IPeliculasDAO peliculasDAO = daoManager.getPeliculasDAO();
 				peliculas = peliculasDAO.findAllPeliculas();
 			
-
-			
-		} catch (DAOException e) {
-			
+		} 
+		catch (DAOException e) 
+		{
+			System.out.println("hola error");
 			throw new ServiceException("Problema listando todas las peliculas  "+e.getMessage());
-
 		}
 		
 		return peliculas;
 	}
 
-
-
 	@Override
-	public Peliculas findPeliculaByIdPelicula(Peliculas pelicula)throws ServiceException {
+	public Peliculas findPeliculaByIdPelicula(Peliculas pelicula)throws ServiceException 
+	{
 		TransactionManager daoManager = null;
 			
-		try {
+		try 
+		{
 			
 				daoManager = new TransactionManager();
 				IPeliculasDAO peliculasDAO = daoManager.getPeliculasDAO();
 				pelicula = peliculasDAO.findPeliculaByIdPelicula(pelicula);
 			
-
-			
-		} catch (DAOException e) {
-			
+		} 
+		catch (DAOException e) 
+		{	
 			throw new ServiceException("Problema en findPeliculaByIdPelicula "+e.getMessage());
-
 		}
 		
 		return pelicula;
-		}
+	}
 	
 	
 	public List<Peliculas> findPeliculasByTitulo(Peliculas pelicula)throws ServiceException {

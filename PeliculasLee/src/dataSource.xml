@@ -10,7 +10,7 @@
         <property name="dataSource" ref="dataSource" />
     </bean>
 	
-	<bean name="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" lazy-init="true" primary="false">
+	<bean name="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" lazy-init="true" primary="true">
 		<property name="url" value="jdbc:mysql://localhost:3306/peliculaslee"></property>
 		<property name="password" value="1111"></property>
 		<property name="username" value="root"></property>

@@ -20,8 +20,16 @@
                 <a href="index.html" class="logo">Theory</a>
                 <nav id="nav">
                     <a href="index.jsp">Home</a>
-                    <a href="logearse.do">Iniciar Sesion</a>
-                    <a href="register.do">Registrarse</a>
+                    
+                    <c:if test="${not empty usuario}">
+                    	<a href="perfil.jsp">Mi Perfil</a>
+                    	<a href="logout.do">Cerrar Sesion</a>
+                    </c:if>	
+                    
+                    <c:if test="${empty usuario}">
+                    	<a href="logearse.do">Iniciar Sesion</a>
+                    	<a href="register.do">Registrarse</a>
+                    </c:if>	
                 </nav>
                 <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
             </div>
