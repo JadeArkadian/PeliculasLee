@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS `peliculasLee`.`usuarios` (
     `nombre` VARCHAR(45) NULL,
     `apellidos` VARCHAR(45) NULL,
     `email` VARCHAR(45) NULL,
-    `imagen` VARCHAR(45) NULL,
+    `imagen` VARCHAR(90) NULL,
     PRIMARY KEY (`username`)
 )  ENGINE=INNODB;
 
@@ -55,13 +55,13 @@ DROP TABLE IF EXISTS `peliculasLee`.`peliculas` ;
 
 CREATE TABLE IF NOT EXISTS `peliculasLee`.`peliculas` (
     `idPelicula` INT NOT NULL AUTO_INCREMENT,
-    `titulo` VARCHAR(45) NULL,
+    `titulo` VARCHAR(90) NULL,
     `sinopsis` VARCHAR(2000) NULL,
     `anio` INT(4) NULL,
     `director` VARCHAR(45) NULL,
     `reparto` VARCHAR(2000) NULL,
-    `username` VARCHAR(45) NOT NULL,
-    `fechaCreacion` DATE NULL,
+    `username` VARCHAR(45) NULL,
+    `imagen` VARCHAR(90) NULL,
     PRIMARY KEY (`idPelicula`),
     INDEX `fk_peliculas_administradores1_idx` (`username` ASC),
     CONSTRAINT `fk_peliculas_administradores1` FOREIGN KEY (`username`)
