@@ -22,7 +22,7 @@ public class CategoriasPorPeliculaService implements ICategoriasPorPeliculaServi
 	
 
 	@Override
-	public List<CategoriasPorPelicula> findCategoriasPorPeliculaByIdPelicula(Peliculas pelicula) {
+	public List<CategoriasPorPelicula> findCategoriasPorPeliculaByIdPelicula(Peliculas pelicula) throws ServiceException{
 		TransactionManager daoManager = null;
 		List<CategoriasPorPelicula>  categoriasPorPelicula= new ArrayList<CategoriasPorPelicula>();
 		
@@ -44,7 +44,7 @@ public class CategoriasPorPeliculaService implements ICategoriasPorPeliculaServi
 	}
 
 	@Override
-	public void insert(CategoriasPorPelicula categoriaPorPelicula) {
+	public void insert(CategoriasPorPelicula categoriaPorPelicula) throws ServiceException {
 		TransactionManager daoManager=null;
 		
 		try{
@@ -68,7 +68,7 @@ public class CategoriasPorPeliculaService implements ICategoriasPorPeliculaServi
 	}
 
 	@Override
-	public void delete(CategoriasPorPelicula categoriaPorPelicula) {
+	public void delete(CategoriasPorPelicula categoriaPorPelicula) throws ServiceException{
 		TransactionManager daoManager=null;
 		try{
 			daoManager=new TransactionManager();
@@ -93,7 +93,7 @@ public class CategoriasPorPeliculaService implements ICategoriasPorPeliculaServi
 
 
 	@Override
-	public List<CategoriasPorPelicula> findCategoriasPorPeliculaByIdCategoria(Categorias categoria) {
+	public List<CategoriasPorPelicula> findCategoriasPorPeliculaByIdCategoria(Categorias categoria) throws ServiceException{
 		TransactionManager daoManager = null;
 		List<CategoriasPorPelicula>  categoriasPorPelicula= new ArrayList<CategoriasPorPelicula>();
 		

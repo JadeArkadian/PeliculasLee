@@ -19,7 +19,7 @@ private IUsuariosDAO usuarioDAO;
 	}
 
 	@Override
-	public boolean insertUsuario(Usuarios usuario) {
+	public boolean insertUsuario(Usuarios usuario) throws ServiceException{
 
 		TransactionManager daoManager = null;
 		Usuarios user = null;
@@ -39,7 +39,7 @@ private IUsuariosDAO usuarioDAO;
 	}
 
 	@Override
-	public Usuarios findUsuariosByUsername(Usuarios usuario) {
+	public Usuarios findUsuariosByUsername(Usuarios usuario) throws ServiceException{
 		TransactionManager daoManager = null;
 		Usuarios usuarioEncontrado = null;
 		try {
@@ -57,7 +57,7 @@ private IUsuariosDAO usuarioDAO;
 	}
 
 	@Override
-	public void updateUsuario(Usuarios usuario) {
+	public void updateUsuario(Usuarios usuario) throws ServiceException{
 		TransactionManager daoManager = null;
 		boolean modificado = false;
 		try {
@@ -67,7 +67,7 @@ private IUsuariosDAO usuarioDAO;
 			throw new ServiceException(e.getMessage());
 		}
 	}
-	public void deleteUsuario(Usuarios usuario) {
+	public void deleteUsuario(Usuarios usuario)throws ServiceException {
 		
 		TransactionManager daoManager = null;
 		try {

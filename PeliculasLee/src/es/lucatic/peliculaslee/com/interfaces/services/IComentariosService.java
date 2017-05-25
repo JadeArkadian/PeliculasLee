@@ -4,11 +4,12 @@ import java.util.List;
 
 import es.lucatic.peliculaslee.com.domains.Peliculas;
 import es.lucatic.peliculaslee.com.domains.Usuarios;
+import es.lucatic.peliculaslee.com.exceptions.ServiceException;
 import es.lucatic.peliculaslee.com.domains.Comentarios;
 
 public interface IComentariosService {
 
-	public boolean add(Comentarios comentario);
+	public boolean add(Comentarios comentario) ;
 	
 	/**
 	 * Devuelve una lista con todos los registros de la tabla de comentarios

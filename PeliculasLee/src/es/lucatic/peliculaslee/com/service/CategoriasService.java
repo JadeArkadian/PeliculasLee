@@ -22,7 +22,7 @@ public class CategoriasService implements ICategoriasService {
 	}
 
 	@Override
-	public List<Categorias> findAllCategorias() {
+	public List<Categorias> findAllCategorias() throws ServiceException{
 		TransactionManager daoManager = null;
 		List<Categorias>  categorias= new ArrayList<Categorias>();
 		
@@ -45,7 +45,7 @@ public class CategoriasService implements ICategoriasService {
 	
 
 	@Override
-	public Categorias findCategoriaByIdCategoria(Categorias categoria) {
+	public Categorias findCategoriaByIdCategoria(Categorias categoria)throws ServiceException{
 		TransactionManager daoManager = null;
 		Categorias  categoria_aux= new Categorias();
 		
@@ -67,7 +67,7 @@ public class CategoriasService implements ICategoriasService {
 	}
 
 	@Override
-	public void insert(Categorias categoria) {
+	public void insert(Categorias categoria) throws ServiceException {
 		TransactionManager daoManager = null;
 	
 		
@@ -90,7 +90,7 @@ public class CategoriasService implements ICategoriasService {
 	}
 
 	@Override
-	public void update(Categorias categoria) {
+	public void update(Categorias categoria) throws ServiceException{
 		TransactionManager daoManager = null;
 		Categorias  categoria_aux= new Categorias();
 		
@@ -116,7 +116,7 @@ public class CategoriasService implements ICategoriasService {
 	}
 
 	@Override
-	public void delete(Categorias categoria) {
+	public void delete(Categorias categoria) throws ServiceException{
 		TransactionManager daoManager = null;
 		Categorias  categoria_aux= new Categorias();
 		
