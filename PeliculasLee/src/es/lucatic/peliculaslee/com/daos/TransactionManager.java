@@ -28,9 +28,7 @@ public class TransactionManager {
 		return new UsuariosDAO();
 	}
 	
-	public IValoracionesDAO getMatriculaDAO(){
-		return new ValoracionesDAO();
-	}
+
 	
 	public ICategoriasDAO getCategoriasDAO(){
 		return new CategoriasDAO();
@@ -43,6 +41,11 @@ public class TransactionManager {
 	public ICategoriasPorPeliculaDAO getCategoriasPorPeliculaDAO() {
 		// TODO Auto-generated method stub
 		return new CategoriasPorPeliculaDAO();
+	}
+
+	public IValoracionesDAO getValoracionesDAO() {
+		// TODO Auto-generated method stub
+		return new ValoracionesDAO();
 	}
 	
 }

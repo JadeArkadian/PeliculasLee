@@ -8,6 +8,8 @@ import org.springframework.dao.IncorrectResultSizeDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import es.lucatic.peliculaslee.com.domains.Peliculas;
+import es.lucatic.peliculaslee.com.domains.Usuarios;
+import es.lucatic.peliculaslee.com.exceptions.DAOException;
 import es.lucatic.peliculaslee.com.interfaces.daos.IPeliculasDAO;
 import es.lucatic.peliculaslee.com.utils.queriesDB;
 import es.lucatic.peliculaslee.com.utils.rowmappers.PeliculasMapper;
@@ -116,11 +118,11 @@ public class PeliculasDAO implements IPeliculasDAO {
 		return peliculas;
 	}
 	
-	public List<Peliculas> findPeliculasByUsername(Peliculas pelicula) {
+	public List<Peliculas> findPeliculasByUsername(Usuarios usuario) {
 		List<Peliculas> peliculas = null;
 		try {
 			String SQL = queriesDB.findPeliculasByUsernameQuery;
-			peliculas = jdbcTemplateObject.query(SQL, new Object[] { pelicula.getUsername() }, new PeliculasMapper());
+			peliculas = jdbcTemplateObject.query(SQL, new Object[] { usuario.getUsername() }, new PeliculasMapper());
 		} catch (IncorrectResultSizeDataAccessException ex) { // no encuentra
 																// nada select
 			System.out.println("excepcion" + ex);
@@ -208,10 +210,23 @@ public class PeliculasDAO implements IPeliculasDAO {
 		return;
 	}
 
-	@Override
-	public List<Peliculas> findPeliculaByLetra(String letraEscogida) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Peliculas> findPeliculasByTituloWhichStartsWith(String letra) {
+		List<Peliculas> peliculas = null;
+		String cadena=letra+"%";
+		try {
+			String SQL = queriesDB.findPeliculasByTituloLikeQuery;
+			peliculas = jdbcTemplateObject.query(SQL, new Object[] { cadena }, new PeliculasMapper());
+		} catch (IncorrectResultSizeDataAccessException ex) { // no encuentra
+																// nada select
+			System.out.println("excepcion" + ex);
+		} catch (Exception ex) {
+			System.out.println("excepcion" + ex);
+		}
+		System.out.println("desp");
+		return peliculas;
 	}
 
+	
+
+	
 }

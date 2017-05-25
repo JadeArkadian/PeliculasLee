@@ -13,7 +13,7 @@ import es.lucatic.peliculaslee.com.service.UsuariosService;
 @Controller
 public class ModificarUsuarioController {
 	
-	@RequestMapping( value = "/registro", method = RequestMethod.GET )
+	@RequestMapping( value = "/modificar", method = RequestMethod.GET )
 	
 	public ModelAndView interface_modificarUsuario(HttpServletRequest request) {
 		/* LE REDIRECCIONAMOS A LA PAGINA Index.jsp */

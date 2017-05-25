@@ -46,7 +46,7 @@ public class FiltradoValoracionController {
 					//Aqui guardamos 1 valoracion media por cada pelicula.
 					for(int i=0;i<peliculas.size();i++){
 						valoracion.setIdPelicula(peliculas.get(i).getIdPelicula());
-						valoracion.setValoracion(valoracionesService.searchAVG(peliculas.get(i)));
+						valoracion.setValoracion(valoracionesService.avgValoracionesByPelicula(peliculas.get(i)));
 						valoraciones.add(valoracion);
 					}
 				
