@@ -2,6 +2,7 @@
 package es.lucatic.peliculaslee.com.interfaces.services;
 
 import es.lucatic.peliculaslee.com.domains.Usuarios;
+import es.lucatic.peliculaslee.com.exceptions.ServiceException;
 
 /**
  * Interfaz para la clase UsuarioService. Define las funciones utilizadas 
@@ -16,7 +17,7 @@ public interface IUsuariosService
 	 * @param usuario Un objeto de tipo Usuario con todas sus propiedades asignadas
 	 * @return Esta funcion devuelve TRUE en caso de exito. FALSE en caso de fallo.
 	 */
-	public boolean insertUsuario(Usuarios usuario);
+	public boolean insertUsuario(Usuarios usuario)throws ServiceException;
 	
 	/**
 	 * Devuelve una lista con todos los registros de la tabla de usuarios
@@ -32,7 +33,7 @@ public interface IUsuariosService
 	 * @return Devuelve un objeto de tipo Usuario con todas sus propiedades asignadas. En caso de fallo
 	 * esta función devolverá NULL.
 	 */
-	public Usuarios findUsuariosByUsername(Usuarios usuario);
+	public Usuarios findUsuariosByUsername(Usuarios usuario)throws ServiceException;
 
 	/**
 	 * Modifica un usuario existente de la base de datos. 
@@ -40,6 +41,6 @@ public interface IUsuariosService
 	 * debidamente inicializadas y su id_usuario debe de existir en la tabla 
 	 * @return Devuelve TRUE en caso de que la consulta se haya hecho con exito. FALSE en caso contrario.
 	 */
-	public void updateUsuario(Usuarios usuario);	
+	public void updateUsuario(Usuarios usuario)throws ServiceException;	
 
 }
