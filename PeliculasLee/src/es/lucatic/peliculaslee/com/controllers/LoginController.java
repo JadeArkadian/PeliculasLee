@@ -51,6 +51,12 @@ public class LoginController {
 					mensaje = "Bienvenido "+aux.getNombre();
 					request.setAttribute("mensaje", mensaje);
 				}
+				else {
+					mensaje = "El usuario o la contraseña no son correctas.";
+					request.setAttribute("mensaje", mensaje);
+					pagina = "login";
+
+				}
 			}
 
 			else {
