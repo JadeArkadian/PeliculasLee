@@ -1,17 +1,14 @@
 package es.lucatic.peliculaslee.com.domains;
 
-import java.util.Date;
-
 public class Peliculas {
 	private int idPelicula;
 	private String titulo;
-	private String imagen;
 	private String sinopsis;
 	private int anio;
 	private String director;
 	private String reparto;
 	private String username;
-	private Date fechaCreacion;
+	private String imagen;
 
 	/**
 	 * Empty Constructor
@@ -32,10 +29,10 @@ public class Peliculas {
 	 * @param director
 	 * @param reparto
 	 * @param username
-	 * @param fechaCreacion
+	 * @param imagen
 	 */
-	public Peliculas(int idPelicula, String titulo, String imagen, String sinopsis, int anio, String director, String reparto,
-			String username, Date fechaCreacion) {
+	public Peliculas(int idPelicula, String titulo, String sinopsis, int anio, String director,
+			String reparto, String username, String imagen) {
 		super();
 		this.idPelicula = idPelicula;
 		this.titulo = titulo;
@@ -45,7 +42,7 @@ public class Peliculas {
 		this.director = director;
 		this.reparto = reparto;
 		this.username = username;
-		this.fechaCreacion = fechaCreacion;
+		this.imagen = imagen;
 	}
 
 	/**
@@ -76,20 +73,6 @@ public class Peliculas {
 	 */
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
-	}
-
-	/**
-	 * @return the imagen
-	 */
-	public String getImagen() {
-		return imagen;
-	}
-
-	/**
-	 * @param imagen the imagen to set
-	 */
-	public void setImagen(String imagen) {
-		this.imagen = imagen;
 	}
 
 	/**
@@ -166,20 +149,19 @@ public class Peliculas {
 	public void setUsername(String username) {
 		this.username = username;
 	}
-
 	/**
-	 * @return the fechaCreacion
+	 * @return the imagen
 	 */
-	public Date getFechaCreacion() {
-		return fechaCreacion;
+	public String getImagen() {
+		return imagen;
 	}
 
 	/**
-	 * @param fechaCreacion
-	 *            the fechaCreacion to set
+	 * @param imagen
+	 *            the imagen to set
 	 */
-	public void setFechaCreacion(Date fechaCreacion) {
-		this.fechaCreacion = fechaCreacion;
+	public void setImagen(String imagen) {
+		this.imagen = imagen;
 	}
 
 }
