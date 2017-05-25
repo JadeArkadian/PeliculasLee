@@ -49,8 +49,8 @@ public class FiltradoCategoriaController {
 			List<CategoriasPorPelicula> PeliculasPorCategoria= new ArrayList<CategoriasPorPelicula> ();
 			ICategoriasService categoriasService= new CategoriasService();
 			categoria.setIdCategoria(Integer.parseInt(request.getParameter("idCategoria")));
-			categoria=categoriasService.findByIdCategoria(categoria);
-			PeliculasPorCategoria=categoriasPorPeliculaService.findByCategoria(categoria);
+			categoria=categoriasService.findCategoriaByIdCategoria(categoria);
+			PeliculasPorCategoria=categoriasPorPeliculaService.findCategoriasPorPeliculaByIdCategoria(categoria);
 			
 			for(int i=0;i<PeliculasPorCategoria.size();i++){
 				pelicula.setIdPelicula(PeliculasPorCategoria.get(i).getIdPelicula());
