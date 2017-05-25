@@ -7,6 +7,8 @@ import javax.sql.DataSource;
 import org.springframework.dao.IncorrectResultSizeDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import es.lucatic.peliculaslee.com.domains.Peliculas;
+import es.lucatic.peliculaslee.com.domains.Usuarios;
 import es.lucatic.peliculaslee.com.domains.Valoraciones;
 import es.lucatic.peliculaslee.com.interfaces.daos.IValoracionesDAO;
 import es.lucatic.peliculaslee.com.utils.queriesDB;
@@ -40,11 +42,12 @@ public class ValoracionesDAO implements IValoracionesDAO {
 		return valoracionAux;
 	}
 
-	public List<Valoraciones> findValoracionesByIdPelicula(Valoraciones valoracion) {
+	@Override
+	public List<Valoraciones> findValoracionesByIdPelicula(Peliculas pelicula) {
 		List<Valoraciones> valoraciones = null;
 		try {
 			String SQL = queriesDB.findValoracionesByIdPeliculaQuery;
-			valoraciones = jdbcTemplateObject.query(SQL, new Object[] { valoracion.getIdPelicula() },
+			valoraciones = jdbcTemplateObject.query(SQL, new Object[] { pelicula.getIdPelicula() },
 					new ValoracionesMapper());
 		} catch (IncorrectResultSizeDataAccessException ex) { // no encuentra
 																// nada select
@@ -54,12 +57,12 @@ public class ValoracionesDAO implements IValoracionesDAO {
 		}
 		return valoraciones;
 	}
-
-	public List<Valoraciones> findValoracionesByUsername(Valoraciones valoracion) {
+	@Override
+	public List<Valoraciones> findValoracionesByUsername(Usuarios usuario) {
 		List<Valoraciones> valoraciones = null;
 		try {
 			String SQL = queriesDB.findValoracionesByUsernameQuery;
-			valoraciones = jdbcTemplateObject.query(SQL, new Object[] { valoracion.getUsername() },
+			valoraciones = jdbcTemplateObject.query(SQL, new Object[] { usuario.getUsername() },
 					new ValoracionesMapper());
 		} catch (IncorrectResultSizeDataAccessException ex) { // no encuentra
 																// nada select
@@ -85,11 +88,11 @@ public class ValoracionesDAO implements IValoracionesDAO {
 		return numValoraciones;
 	}
 
-	public int countValoracionesByIdPelicula(Valoraciones valoracion) {
+	public int countValoracionesByIdPelicula(Peliculas pelicula) {
 		String SQL = queriesDB.countValoracionesByIdPeliculaQuery;
 		int numValoraciones = 0;
 		try {
-			numValoraciones = jdbcTemplateObject.queryForObject(SQL, new Object[] { valoracion.getIdPelicula() },
+			numValoraciones = jdbcTemplateObject.queryForObject(SQL, new Object[] { pelicula.getIdPelicula() },
 					Integer.class);
 		} catch (IncorrectResultSizeDataAccessException ex) { // no encuentra
 																// nada select
@@ -100,11 +103,11 @@ public class ValoracionesDAO implements IValoracionesDAO {
 		return numValoraciones;
 	}
 
-	public Double avgValoracionesByPelicula(Valoraciones valoracion) {
+	public Double avgValoracionesByPelicula(Peliculas pelicula) {
 		String SQL = queriesDB.avgValoracionesByPeliculaQuery;
 		double mediaValoraciones=0.0;
 		try {
-			mediaValoraciones = jdbcTemplateObject.queryForObject(SQL, new Object[] { valoracion.getIdPelicula() },
+			mediaValoraciones = jdbcTemplateObject.queryForObject(SQL, new Object[] { pelicula.getIdPelicula() },
 					Double.class);
 		} catch (IncorrectResultSizeDataAccessException ex) { // no encuentra
 																// nada select
