@@ -8,6 +8,8 @@ import org.springframework.dao.IncorrectResultSizeDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import es.lucatic.peliculaslee.com.domains.Comentarios;
+import es.lucatic.peliculaslee.com.domains.Peliculas;
+import es.lucatic.peliculaslee.com.domains.Usuarios;
 import es.lucatic.peliculaslee.com.interfaces.daos.IComentariosDAO;
 import es.lucatic.peliculaslee.com.utils.queriesDB;
 import es.lucatic.peliculaslee.com.utils.rowmappers.ComentariosMapper;
@@ -54,11 +56,11 @@ public class ComentariosDAO implements IComentariosDAO {
 		return comentarioAux;
 	}
 
-	public List<Comentarios> findComentariosByIdPelicula(Comentarios comentario) {
+	public List<Comentarios> findComentariosByIdPelicula(Peliculas pelicula) {
 		String SQL = queriesDB.findComentariosByIdPeliculaQuery;
 		List<Comentarios> comentarios = null;
 		try {
-			comentarios = jdbcTemplateObject.query(SQL, new Object[] { comentario.getIdPelicula() },
+			comentarios = jdbcTemplateObject.query(SQL, new Object[] { pelicula.getIdPelicula() },
 					new ComentariosMapper());
 		} catch (IncorrectResultSizeDataAccessException ex) { // no encuentra
 																// nada select
@@ -69,11 +71,11 @@ public class ComentariosDAO implements IComentariosDAO {
 		return comentarios;
 	}
 	
-	public List<Comentarios> findComentariosByUsername(Comentarios comentario) {
+	public List<Comentarios> findComentariosByUsername(Usuarios usuario) {
 		String SQL = queriesDB.findComentariosByUsernameQuery;
 		List<Comentarios> comentarios = null;
 		try {
-			comentarios = jdbcTemplateObject.query(SQL, new Object[] { comentario.getIdPelicula() },
+			comentarios = jdbcTemplateObject.query(SQL, new Object[] { usuario.getUsername() },
 					new ComentariosMapper());
 		} catch (IncorrectResultSizeDataAccessException ex) { // no encuentra
 																// nada select
@@ -84,12 +86,12 @@ public class ComentariosDAO implements IComentariosDAO {
 		return comentarios;
 	}
 
-	public int countComentariosByIdPelicula(Comentarios comentario) {
+	public int countComentariosByIdPelicula(Peliculas pelicula) {
 		int numComentarios=0;
 		try {
 			String SQL = queriesDB.findComentarioByIdPeliculaAndUsernameQuery;
 			numComentarios = jdbcTemplateObject.queryForObject(SQL,
-					new Object[] {comentario.getIdPelicula()}, Integer.class);
+					new Object[] {pelicula.getIdPelicula()}, Integer.class);
 		} catch (IncorrectResultSizeDataAccessException ex) { // no encuentra
 																// nada select
 			System.out.println("excepcion" + ex);

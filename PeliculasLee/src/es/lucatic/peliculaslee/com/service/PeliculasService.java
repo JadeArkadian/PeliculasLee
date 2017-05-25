@@ -10,6 +10,7 @@ import org.springframework.dao.IncorrectResultSizeDataAccessException;
 import es.lucatic.peliculaslee.com.daos.TransactionManager;
 import es.lucatic.peliculaslee.com.domains.Categorias;
 import es.lucatic.peliculaslee.com.domains.Peliculas;
+import es.lucatic.peliculaslee.com.domains.Usuarios;
 import es.lucatic.peliculaslee.com.exceptions.DAOException;
 import es.lucatic.peliculaslee.com.exceptions.ServiceException;
 import es.lucatic.peliculaslee.com.interfaces.daos.IPeliculasDAO;
@@ -177,7 +178,7 @@ public class PeliculasService implements IPeliculasService {
 		}
 	
 	
-	public List<Peliculas> findPeliculasByUsername(Peliculas pelicula)throws ServiceException {
+	/*public List<Peliculas> findPeliculasByUsername(Usuarios usuario)throws ServiceException {
 		TransactionManager daoManager = null;
 		List<Peliculas>  peliculas = new ArrayList<Peliculas>();
 		
@@ -185,7 +186,7 @@ public class PeliculasService implements IPeliculasService {
 			
 				daoManager = new TransactionManager();
 				IPeliculasDAO peliculasDAO = daoManager.getPeliculasDAO();
-				peliculas = peliculasDAO.findPeliculasByUsername(pelicula);
+				peliculas = peliculasDAO.findPeliculasByUsername(usuario);
 			
 
 			
@@ -198,7 +199,7 @@ public class PeliculasService implements IPeliculasService {
 		return peliculas;
 		}
 	
-	
+	*/
 	
 	public List<Peliculas> findLast12Peliculas() throws ServiceException{
 		TransactionManager daoManager = null;
@@ -311,10 +312,29 @@ public class PeliculasService implements IPeliculasService {
 	}
 
 	@Override
-	public List<Peliculas> findPeliculaByLetra(String letraEscogida)throws ServiceException {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	public List<Peliculas> findPeliculasByTituloWhichStartsWith(String letraEscogida)throws ServiceException {
+		TransactionManager daoManager = null;
+		List<Peliculas>  peliculas = new ArrayList<Peliculas>();
+		
+		try {
+			
+				daoManager = new TransactionManager();
+				IPeliculasDAO peliculasDAO = daoManager.getPeliculasDAO();
+				peliculas = peliculasDAO.findPeliculasByTituloWhichStartsWith(letraEscogida);
+			
+
+			
+		} catch (DAOException e) {
+			
+			throw new ServiceException("Problema en ffindPeliculasByTituloWhichStartsWith "+e.getMessage());
+
+		}
+		
+		return peliculas;
+		}
+	
+	
+
 	
 
 

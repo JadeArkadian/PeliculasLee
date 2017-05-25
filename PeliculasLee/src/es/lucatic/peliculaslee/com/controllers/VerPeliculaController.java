@@ -53,9 +53,9 @@ public class VerPeliculaController {
 				pelicula.setIdPelicula(Integer.parseInt(request.getParameter("idPelicula")));
 				pelicula=peliculasService.findPeliculaByIdPelicula(pelicula);
 				session.setAttribute("peliculaActual", pelicula);
-				valoracion=valoracionesService.searchAVG(pelicula);
+				valoracion=valoracionesService.avgValoracionesByPelicula(pelicula);
 				session.setAttribute("valoracionPeliculaActual", valoracion);
-				comentarios=comentariosService.list(pelicula);
+				comentarios=comentariosService.findComentariosByIdPelicula(pelicula);
 				
 				session.setAttribute("ComentariosPeliculaActual", comentarios);
 				

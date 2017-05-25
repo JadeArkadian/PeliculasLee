@@ -22,7 +22,7 @@ public class FiltradoAlfabeticoController {
 		//Se recoge por parametro del href:\\Controlador?letra="letraSeleccionada" que se implementa en el html
 		String letraEscogida = request.getParameter("letra");
 		PeliculasService peliService = new PeliculasService();
-		ArrayList<Peliculas> peliculasFiltradasLetra = (ArrayList<Peliculas>) peliService.findPeliculaByLetra(letraEscogida);
+		ArrayList<Peliculas> peliculasFiltradasLetra = (ArrayList<Peliculas>) peliService.findPeliculasByTituloWhichStartsWith(letraEscogida);
 		//Subo a la nube las peliculas filtradas en arrayList
 		request.getSession().setAttribute("peliculas", peliculasFiltradasLetra);//Machaca el atributo peliculas y lo remplaza.
 		//Depende de si implementamos la vista de busqueda avanzada
