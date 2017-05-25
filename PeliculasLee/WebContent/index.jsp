@@ -2,13 +2,10 @@
 <%@include file="WEB-INF/includes/header.jsp" %>
 
 <%
+// Esto es una chapa...
 PeliculasService peliculasService = new PeliculasService ();
 List<Peliculas> peliculas = peliculasService.findAllPeliculas();
-
 request.setAttribute("peliculas", peliculas);
-
-System.out.println(peliculas);
-
 %>
 
         <!-- Banner -->
@@ -20,16 +17,18 @@ System.out.println(peliculas);
 					<div class="inner">
 					<!-- Boxes -->
 						<div class="thumbnails">
-
-						<c:forEach items="${peliculas}" var="pelicula">
-							<div class="box">
-								<a href="verPelicula.do?idPelicula=${pelicula.getIdPelicula()}" class="image fit"><img src="images/movies/${pelicula.getImagen()}" alt="${pelicula.getTitulo()}" /></a>
-								<div class="inner">
-									<h3> ${pelicula.getTitulo()}</h3>
+						
+							<c:forEach items="${peliculas}" var="pelicula">
+								<div class="box">
+									<a href="verPelicula.do?idPelicula=${pelicula.getIdPelicula()}" class="image fit">
+										<img src="images/movies/${pelicula.getImagen()}" alt="${pelicula.getTitulo()}" />
+									</a>
+									<div class="inner">
+										<h3> ${pelicula.getTitulo()}</h3>
+									</div>
 								</div>
-							</div>
-						</c:forEach>	
-										
+							</c:forEach>	
+												
 						</div>
 					</div>
 				</div>

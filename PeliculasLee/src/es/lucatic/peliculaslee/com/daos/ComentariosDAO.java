@@ -11,7 +11,7 @@ import es.lucatic.peliculaslee.com.domains.Comentarios;
 import es.lucatic.peliculaslee.com.domains.Peliculas;
 import es.lucatic.peliculaslee.com.domains.Usuarios;
 import es.lucatic.peliculaslee.com.interfaces.daos.IComentariosDAO;
-import es.lucatic.peliculaslee.com.utils.queriesDB;
+import es.lucatic.peliculaslee.com.utils.QueriesDb;
 import es.lucatic.peliculaslee.com.utils.rowmappers.ComentariosMapper;
 
 public class ComentariosDAO implements IComentariosDAO {
@@ -28,7 +28,7 @@ public class ComentariosDAO implements IComentariosDAO {
 	}
 
 	public List<Comentarios> findAllComentarios() {
-		String SQL = queriesDB.findAllComentariosQuery;
+		String SQL = QueriesDb.findAllComentariosQuery;
 		List<Comentarios> comentarios = null;
 		try {
 			comentarios = jdbcTemplateObject.query(SQL, new ComentariosMapper());
@@ -44,7 +44,7 @@ public class ComentariosDAO implements IComentariosDAO {
 	public Comentarios findComentarioByIdPeliculaAndUsername(Comentarios comentario) {
 		Comentarios comentarioAux = null;
 		try {
-			String SQL = queriesDB.findComentarioByIdPeliculaAndUsernameQuery;
+			String SQL = QueriesDb.findComentarioByIdPeliculaAndUsernameQuery;
 			comentarioAux = jdbcTemplateObject.queryForObject(SQL,
 					new Object[] { comentario.getIdPelicula(), comentario.getUsername() }, new ComentariosMapper());
 		} catch (IncorrectResultSizeDataAccessException ex) { // no encuentra
@@ -57,7 +57,7 @@ public class ComentariosDAO implements IComentariosDAO {
 	}
 
 	public List<Comentarios> findComentariosByIdPelicula(Peliculas pelicula) {
-		String SQL = queriesDB.findComentariosByIdPeliculaQuery;
+		String SQL = QueriesDb.findComentariosByIdPeliculaQuery;
 		List<Comentarios> comentarios = null;
 		try {
 			comentarios = jdbcTemplateObject.query(SQL, new Object[] { pelicula.getIdPelicula() },
@@ -72,7 +72,7 @@ public class ComentariosDAO implements IComentariosDAO {
 	}
 	
 	public List<Comentarios> findComentariosByUsername(Usuarios usuario) {
-		String SQL = queriesDB.findComentariosByUsernameQuery;
+		String SQL = QueriesDb.findComentariosByUsernameQuery;
 		List<Comentarios> comentarios = null;
 		try {
 			comentarios = jdbcTemplateObject.query(SQL, new Object[] { usuario.getUsername() },
@@ -89,7 +89,7 @@ public class ComentariosDAO implements IComentariosDAO {
 	public int countComentariosByIdPelicula(Peliculas pelicula) {
 		int numComentarios=0;
 		try {
-			String SQL = queriesDB.findComentarioByIdPeliculaAndUsernameQuery;
+			String SQL = QueriesDb.findComentarioByIdPeliculaAndUsernameQuery;
 			numComentarios = jdbcTemplateObject.queryForObject(SQL,
 					new Object[] {pelicula.getIdPelicula()}, Integer.class);
 		} catch (IncorrectResultSizeDataAccessException ex) { // no encuentra
@@ -103,7 +103,7 @@ public class ComentariosDAO implements IComentariosDAO {
 	}
 	
 	public void insertComentario(Comentarios comentario) {
-		String SQL = queriesDB.insertComentarioQuery;
+		String SQL = QueriesDb.insertComentarioQuery;
 		try {
 			jdbcTemplateObject.update(SQL, comentario.getIdPelicula(),comentario.getUsername(), comentario.getComentario());
 			
@@ -114,7 +114,7 @@ public class ComentariosDAO implements IComentariosDAO {
 	}
 
 	public void deleteComentario(Comentarios comentario) {
-		String SQL = queriesDB.deleteComentarioQuery;
+		String SQL = QueriesDb.deleteComentarioQuery;
 		try {
 			jdbcTemplateObject.update(SQL, comentario.getIdPelicula(),comentario.getUsername());
 		} catch (Exception ex) {

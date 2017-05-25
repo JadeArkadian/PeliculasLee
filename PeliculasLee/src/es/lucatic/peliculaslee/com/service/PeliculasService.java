@@ -15,7 +15,7 @@ import es.lucatic.peliculaslee.com.exceptions.DAOException;
 import es.lucatic.peliculaslee.com.exceptions.ServiceException;
 import es.lucatic.peliculaslee.com.interfaces.daos.IPeliculasDAO;
 import es.lucatic.peliculaslee.com.interfaces.services.IPeliculasService;
-import es.lucatic.peliculaslee.com.utils.queriesDB;
+import es.lucatic.peliculaslee.com.utils.QueriesDb;
 import es.lucatic.peliculaslee.com.utils.rowmappers.PeliculasMapper;
 
 public class PeliculasService implements IPeliculasService {

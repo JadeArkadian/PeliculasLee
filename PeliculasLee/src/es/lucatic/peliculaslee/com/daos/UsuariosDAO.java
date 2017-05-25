@@ -8,7 +8,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import es.lucatic.peliculaslee.com.domains.Usuarios;
 import es.lucatic.peliculaslee.com.exceptions.DAOException;
 import es.lucatic.peliculaslee.com.interfaces.daos.IUsuariosDAO;
-import es.lucatic.peliculaslee.com.utils.queriesDB;
+import es.lucatic.peliculaslee.com.utils.QueriesDb;
 import es.lucatic.peliculaslee.com.utils.rowmappers.UsuariosMapper;
 
 public class UsuariosDAO implements IUsuariosDAO {
@@ -23,7 +23,7 @@ public class UsuariosDAO implements IUsuariosDAO {
 	public Usuarios findUsuariosByUsername(Usuarios usuario) {
 		Usuarios studentaux = null;
 		try {
-			String SQL = queriesDB.findUsuariosByUsernameQuery;
+			String SQL = QueriesDb.findUsuariosByUsernameQuery;
 			System.out.println("DAO username: "+usuario.getUsername());
 			studentaux = jdbcTemplateObject.queryForObject(SQL, new Object[] { usuario.getUsername() },new UsuariosMapper());
 			System.out.println("fin");
@@ -38,7 +38,7 @@ public class UsuariosDAO implements IUsuariosDAO {
 	}
 
 	public void insertUsuario(Usuarios usuario) {
-		String SQL = queriesDB.insertUsuarioQuery;
+		String SQL = QueriesDb.insertUsuarioQuery;
 		try {
 				jdbcTemplateObject.update(SQL, usuario.getUsername(), usuario.getPassword(), usuario.getNombre(),
 					usuario.getApellidos(), usuario.getEmail(), usuario.getImagen());
@@ -52,7 +52,7 @@ public class UsuariosDAO implements IUsuariosDAO {
 	}
 
 	public void updateUsuario(Usuarios usuario) {
-		String SQL = queriesDB.updateUsuarioQuery;
+		String SQL = QueriesDb.updateUsuarioQuery;
 		try {
 			jdbcTemplateObject.update(SQL, usuario.getPassword(), usuario.getNombre(), usuario.getApellidos(),
 					usuario.getEmail(), usuario.getImagen(), usuario.getUsername());
@@ -66,7 +66,7 @@ public class UsuariosDAO implements IUsuariosDAO {
 	}
 
 	public void deleteUsuario(Usuarios usuario) {
-		String SQL = queriesDB.deleteUsuarioQuery;
+		String SQL = QueriesDb.deleteUsuarioQuery;
 		try {
 			jdbcTemplateObject.update(SQL, usuario.getUsername());
 			System.out.println("Deleted Record with Username = " + usuario.getUsername());
