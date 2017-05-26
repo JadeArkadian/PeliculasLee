@@ -15,7 +15,8 @@ public class ModificarUsuarioController {
 	
 	@RequestMapping( value = "/modificar", method = RequestMethod.GET )
 	
-	public ModelAndView interface_modificarUsuario(HttpServletRequest request) {
+	public ModelAndView interface_modificarUsuario(HttpServletRequest request) 
+	{
 		/* LE REDIRECCIONAMOS A LA PAGINA Index.jsp */
 		//Obtengo el usuario de la session actual.
 		Usuarios usuario= (Usuarios) request.getSession().getAttribute("usuario");
@@ -24,14 +25,17 @@ public class ModificarUsuarioController {
 		String nombre = request.getParameter("nombre");
 		String apellidos = request.getParameter("apellidos");
 		//Errores
-		String mensajePass = "Las contraseñas deben de coincidir";
+		String mensajePass = "Las contraseï¿½as deben de coincidir";
 		String mensajeNombre = "El campo nombre no puede estar vacio";
 		String mensajeApellido ="El campo apellido no puede estar vacio";
 		
 		//Compruebo que las contraseï¿½as coincidan, el nombre y el apellido no esten vacios.
-		if(password.equals(passwordConfirm)){
-			if(!nombre.isEmpty()){
-				if(!apellidos.isEmpty()){
+		if(password.equals(passwordConfirm))
+		{
+			if(!nombre.isEmpty())
+			{
+				if(!apellidos.isEmpty())
+				{
 					usuario.setApellidos(apellidos);
 					usuario.setNombre(nombre);
 					usuario.setPassword(password);
@@ -41,14 +45,18 @@ public class ModificarUsuarioController {
 					//Subo el nuevo usuario a la nuve y le redirigo a su pagina de perfil
 					request.getSession().setAttribute("usuario", usuario);
 					
-				}else{
+				}
+				else
+				{
 					request.setAttribute("mensaje", mensajeApellido);
 				}
 			} else{
 				request.setAttribute("mensaje", mensajeNombre);
 			}
 					
-		}else {
+		}
+		else 
+		{
 			request.setAttribute("mensaje", mensajePass);
 		}
 		

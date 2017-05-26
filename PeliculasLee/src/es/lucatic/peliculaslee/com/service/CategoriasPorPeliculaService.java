@@ -13,31 +13,31 @@ import es.lucatic.peliculaslee.com.interfaces.daos.ICategoriasPorPeliculaDAO;
 import es.lucatic.peliculaslee.com.interfaces.daos.IPeliculasDAO;
 import es.lucatic.peliculaslee.com.interfaces.services.ICategoriasPorPeliculaService;
 
-public class CategoriasPorPeliculaService implements ICategoriasPorPeliculaService {
+public class CategoriasPorPeliculaService implements ICategoriasPorPeliculaService 
+{
 
-	public CategoriasPorPeliculaService() {
-		// TODO Auto-generated constructor stub
+	public CategoriasPorPeliculaService() 
+	{
+		
 	}
-
 	
 
 	@Override
-	public List<CategoriasPorPelicula> findCategoriasPorPeliculaByIdPelicula(Peliculas pelicula) throws ServiceException{
+	public List<CategoriasPorPelicula> findCategoriasPorPeliculaByIdPelicula(Peliculas pelicula) throws ServiceException
+	{
 		TransactionManager daoManager = null;
 		List<CategoriasPorPelicula>  categoriasPorPelicula= new ArrayList<CategoriasPorPelicula>();
 		
-		try {
-			
+		try 
+		{	
 				daoManager = new TransactionManager();
 				ICategoriasPorPeliculaDAO categoriasPorPeliculaDAO = daoManager.getCategoriasPorPeliculaDAO ();
 				categoriasPorPelicula = categoriasPorPeliculaDAO.findCategoriasPorPeliculaByIdPelicula(pelicula);
-			
-
-			
-		} catch (DAOException e) {
-			
+				
+		} 
+		catch (DAOException e) 
+		{	
 			throw new ServiceException("Problema en findCategoriasPorPeliculaByIdPelicula "+e.getMessage());
-
 		}
 		
 		return categoriasPorPelicula;
@@ -56,7 +56,7 @@ public class CategoriasPorPeliculaService implements ICategoriasPorPeliculaServi
 			}
 			else{
 			
-				throw new ServiceException( "La categoriaporpelicula que se quiere añadir es un NULL");
+				throw new ServiceException( "La categoriaporpelicula que se quiere aï¿½adir es un NULL");
 			
 			}
 		}

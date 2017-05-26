@@ -2,37 +2,37 @@
 <%@include file="WEB-INF/includes/header.jsp" %>
 
 <%
+// Esto es una chapa...
 PeliculasService peliculasService = new PeliculasService ();
 List<Peliculas> peliculas = peliculasService.findAllPeliculas();
-
 request.setAttribute("peliculas", peliculas);
-
-System.out.println(peliculas);
-
 %>
 
         <!-- Banner -->
         <section id="banner"></section>
-        <!-- MENSAJE -->
-        <p>${mensaje}</p>
 			<!-- Main -->
 				<div id="main">
 					<div class="inner">
 					<!-- Boxes -->
 						<div class="thumbnails">
-
-						<c:forEach items="${peliculas}" var="pelicula">
-							<div class="box">
-								<a href="verPelicula.do?idPelicula=${pelicula.getIdPelicula()}" class="image fit"><img src="images/movies/${pelicula.getImagen()}" alt="${pelicula.getTitulo()}" /></a>
-								<div class="inner">
-									<h3> ${pelicula.getTitulo()}</h3>
+						
+							<c:forEach items="${peliculas}" var="pelicula">
+								<div class="box">
+									<a href="verPelicula.do?idPelicula=${pelicula.getIdPelicula()}" class="image fit">
+										<img src="images/movies/${pelicula.getImagen()}" alt="${pelicula.getTitulo()}" />
+									</a>
+									<div class="inner">
+										<h3> ${pelicula.getTitulo()}</h3>
+									</div>
 								</div>
-							</div>
-						</c:forEach>	
-										
+							</c:forEach>	
+												
 						</div>
 					</div>
 				</div>
 
 
+<c:if test="${not empty mensaje}">
+	<%@include file="WEB-INF/includes/popup.jsp" %>
+</c:if>
 <%@include file="WEB-INF/includes/footer.jsp" %>

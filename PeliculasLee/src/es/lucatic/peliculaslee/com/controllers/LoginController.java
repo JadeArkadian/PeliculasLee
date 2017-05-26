@@ -17,22 +17,23 @@ import es.lucatic.peliculaslee.com.domains.Usuarios;
 import es.lucatic.peliculaslee.com.interfaces.services.IUsuariosService;
 import es.lucatic.peliculaslee.com.service.UsuariosService;
 
-//ESTE CONTROLLER COMPRUEBA SI EL USUARIO Y AL CONTRASEÑA SON CORRECTAS 
+//ESTE CONTROLLER COMPRUEBA SI EL USUARIO Y AL CONTRASEï¿½A SON CORRECTAS 
 @Controller
-public class LoginController {
+public class LoginController 
+{
 	
-@RequestMapping( value = "/logearse", method = RequestMethod.GET )
-	
-	public ModelAndView interface_Logearse() {
-		System.out.println("ENTRAlogearse");
-		
+	@RequestMapping( value = "/logearse", method = RequestMethod.GET )
+	public ModelAndView interface_Logearse() 
+	{	
 		/* LE REDIRECCIONAMOS A LA PAGINA Index.jsp */
 		return new ModelAndView( "login", "datosaltausuario", new Usuarios() );
 	}
 	
+	
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	// ANOTACION DE QUE VA A RECIBIR UN PRODUCTO. SIN LA ANOTACION NO FUNCIONA
-	public ModelAndView altaUsuario(@Valid Usuarios usuario, HttpServletRequest request) {
+	public ModelAndView altaUsuario(@Valid Usuarios usuario, HttpServletRequest request) 
+	{
 		String pagina = "../index";
 
 		HttpServletResponse response;
@@ -44,7 +45,7 @@ public class LoginController {
 		if (aux != null) {
 			if (aux.getUsername().equals(usuario.getUsername())) {
 				if (aux.getPassword().equals(usuario.getPassword())) {
-					// Si el usuario está en la base de datos subimos a la nube
+					// Si el usuario estï¿½ en la base de datos subimos a la nube
 					// su
 					// informacion
 					session.setAttribute("usuario", aux);
@@ -52,7 +53,7 @@ public class LoginController {
 					request.setAttribute("mensaje", mensaje);
 				}
 				else {
-					mensaje = "El usuario o la contraseña no son correctas.";
+					mensaje = "El usuario o la contraseï¿½a no son correctas.";
 					request.setAttribute("mensaje", mensaje);
 					pagina = "login";
 
@@ -60,7 +61,7 @@ public class LoginController {
 			}
 
 			else {
-				mensaje = "El usuario o la contraseña no son correctas.";
+				mensaje = "El usuario o la contraseï¿½a no son correctas.";
 				request.setAttribute("mensaje", mensaje);
 				pagina = "login";
 
@@ -76,16 +77,19 @@ public class LoginController {
 		modelandviewAux.addObject(request);
 		return modelandviewAux;
 		
-
 	}
+	
+	
 	@ModelAttribute("datosUsuario")  //para el tema de validaciones hay que poner esto ademas
 	 //  "datosCoche" coincide con el <form:form method="post" action="login.do" commandName="datoslogin"> del .jsp
-	public Usuarios populateForm() {
+	public Usuarios populateForm() 
+	{
 		// System.out.println("populateForm usuarioLogin()");
 	     return new Usuarios(); // creamos el bean para que se pueda popular
 	}
 
-	public LoginController() {
+	public LoginController() 
+	{
 		// TODO Auto-generated constructor stub
 	}
 

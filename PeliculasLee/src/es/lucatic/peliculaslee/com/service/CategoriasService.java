@@ -5,8 +5,6 @@ import java.util.List;
 
 import es.lucatic.peliculaslee.com.daos.TransactionManager;
 import es.lucatic.peliculaslee.com.domains.Categorias;
-import es.lucatic.peliculaslee.com.domains.CategoriasPorPelicula;
-import es.lucatic.peliculaslee.com.domains.Usuarios;
 import es.lucatic.peliculaslee.com.exceptions.DAOException;
 import es.lucatic.peliculaslee.com.exceptions.ServiceException;
 import es.lucatic.peliculaslee.com.interfaces.daos.ICategoriasDAO;
@@ -27,18 +25,15 @@ public class CategoriasService implements ICategoriasService {
 		TransactionManager daoManager = null;
 		List<Categorias>  categorias= new ArrayList<Categorias>();
 		
-		try {
-			
-				daoManager = new TransactionManager();
-				ICategoriasDAO categoriasDAO = daoManager.getCategoriasDAO ();
-				categorias = categoriasDAO.findAllCategorias();
-			
-
-			
-		} catch (DAOException e) {
-			
+		try 
+		{
+			daoManager = new TransactionManager();
+			ICategoriasDAO categoriasDAO = daoManager.getCategoriasDAO();
+			categorias = categoriasDAO.findAllCategorias();
+		} 
+		catch (DAOException e) 
+		{			
 			throw new ServiceException("Problema en findallategorias"+e.getMessage());
-
 		}
 		
 		return categorias;
@@ -46,44 +41,41 @@ public class CategoriasService implements ICategoriasService {
 	
 
 	@Override
-	public Categorias findCategoriaByIdCategoria(Categorias categoria)throws ServiceException{
+	public Categorias findCategoriaByIdCategoria(Categorias categoria)throws ServiceException
+	{
 		TransactionManager daoManager = null;
-		Categorias  categoria_aux= new Categorias();
+		Categorias categoriaAux = new Categorias();
 		
-		try {
-			
-				daoManager = new TransactionManager();
-				ICategoriasDAO categoriasDAO = daoManager.getCategoriasDAO ();
-				categoria_aux = categoriasDAO. findCategoriaByIdCategoria(categoria);
-			
-
-			
-		} catch (DAOException e) {
+		try 
+		{		
+			daoManager = new TransactionManager();
+			ICategoriasDAO categoriasDAO = daoManager.getCategoriasDAO ();
+			categoriaAux = categoriasDAO.findCategoriaByIdCategoria(categoria);	
+		} 
+		catch (DAOException e) 
+		{
 			
 			throw new ServiceException("Problema en findCategoriaByIdCategoria "+e.getMessage());
 
 		}
 		
-		return categoria;
+		return categoriaAux;
 	}
 
 	@Override
-	public void insert(Categorias categoria) throws ServiceException {
+	public void insert(Categorias categoria) throws ServiceException 
+	{
 		TransactionManager daoManager = null;
-	
-		
-		try {
-			
-				daoManager = new TransactionManager();
-				ICategoriasDAO categoriasDAO = daoManager.getCategoriasDAO ();
-				categoriasDAO.insert(categoria);
-			
 
-			
-		} catch (DAOException e) {
-			
+		try 
+		{
+			daoManager = new TransactionManager();
+			ICategoriasDAO categoriasDAO = daoManager.getCategoriasDAO ();
+			categoriasDAO.insert(categoria);
+		} 
+		catch (DAOException e) 
+		{	
 			throw new ServiceException("Problema en insertcategoria "+e.getMessage());
-
 		}
 		
 		
@@ -119,7 +111,7 @@ public class CategoriasService implements ICategoriasService {
 	@Override
 	public void delete(Categorias categoria) throws ServiceException{
 		TransactionManager daoManager = null;
-		Categorias  categoria_aux= new Categorias();
+		Categorias categoria_aux= new Categorias();
 		
 		try {
 			if(categoria!=null){

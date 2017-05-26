@@ -1,13 +1,15 @@
 package es.lucatic.peliculaslee.com.domains;
 
-public class Categorias {
+public class Categorias 
+{
 	private int idCategoria;
 	private String descripcion;
 
 	/**
 	 * Empty Constructor
 	 */
-	public Categorias() {
+	public Categorias() 
+	{
 		super();
 
 	}
@@ -18,7 +20,8 @@ public class Categorias {
 	 * @param idCategoria
 	 * @param descripcion
 	 */
-	public Categorias(int idCategoria, String descripcion) {
+	public Categorias(int idCategoria, String descripcion) 
+	{
 		super();
 		this.idCategoria = idCategoria;
 		this.descripcion = descripcion;
@@ -27,7 +30,8 @@ public class Categorias {
 	/**
 	 * @return the idCategoria
 	 */
-	public int getIdCategoria() {
+	public int getIdCategoria() 
+	{
 		return idCategoria;
 	}
 

@@ -7,7 +7,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 import es.lucatic.peliculaslee.com.domains.Administradores;
 import es.lucatic.peliculaslee.com.interfaces.daos.IAdministradoresDAO;
-import es.lucatic.peliculaslee.com.utils.queriesDB;
+import es.lucatic.peliculaslee.com.utils.QueriesDb;
 import es.lucatic.peliculaslee.com.utils.rowmappers.AdministradoresMapper;
 
 
@@ -28,7 +28,7 @@ public class AdministradoresDAO implements IAdministradoresDAO {
 	public Administradores findById(Administradores administrador) {
 		Administradores administradorAux = null;
 		try {
-			String SQL = queriesDB.findAdministradoresByUsernameQuery;
+			String SQL = QueriesDb.findAdministradoresByUsernameQuery;
 			administradorAux = jdbcTemplateObject.queryForObject(SQL,
 					new Object[] { administrador.getUsername() }, new AdministradoresMapper());
 		} catch (IncorrectResultSizeDataAccessException ex) { //no encuentra nada select

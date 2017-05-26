@@ -1,12 +1,11 @@
 	package es.lucatic.peliculaslee.com.utils;
 	
-	public class queriesDB 
+	public class QueriesDb 
 	{
 	
-		
 	//TABLA PELICULAS	
 	public static String findAllPeliculasQuery="SELECT * FROM peliculas";
-	public static String findPeliculaByIdPeliculaQuery="SELECT * FROM Peliculas WHERE idPelicula=?";
+	public static String findPeliculaByIdPeliculaQuery="SELECT * FROM peliculas WHERE idPelicula=?";
 	public static String findPeliculasByTituloQuery="SELECT * FROM peliculas WHERE titulo=?";
 	public static String findPeliculasByTituloLikeQuery="SELECT * FROM peliculas WHERE titulo like ?";
 	public static String findPeliculasByAnioQuery="SELECT * FROM peliculas WHERE anio=?";
@@ -31,7 +30,7 @@
 	
 	
 	//TABLA CATEGORIAS
-	public static String findAllCategoriasQuery="SELECT  * FROM categorias";
+	public static String findAllCategoriasQuery="SELECT * FROM categorias";
 	public static String findCategoriaByIdCategoriaQuery="SELECT * FROM categorias WHERE idCategoria=?";
 	
 	public static String insertCategoriaQuery="INSERT INTO categorias(descripcion) values (?)";

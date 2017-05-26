@@ -11,7 +11,7 @@ import es.lucatic.peliculaslee.com.domains.Peliculas;
 import es.lucatic.peliculaslee.com.domains.Usuarios;
 import es.lucatic.peliculaslee.com.domains.Valoraciones;
 import es.lucatic.peliculaslee.com.interfaces.daos.IValoracionesDAO;
-import es.lucatic.peliculaslee.com.utils.queriesDB;
+import es.lucatic.peliculaslee.com.utils.QueriesDb;
 import es.lucatic.peliculaslee.com.utils.rowmappers.ValoracionesMapper;
 
 public class ValoracionesDAO implements IValoracionesDAO {
@@ -30,7 +30,7 @@ public class ValoracionesDAO implements IValoracionesDAO {
 	public Valoraciones findValoracionesByIdPeliculaAndUsername(Valoraciones valoracion) {
 		Valoraciones valoracionAux = null;
 		try {
-			String SQL = queriesDB.findValoracionesByIdPeliculaAndUsernameQuery;
+			String SQL = QueriesDb.findValoracionesByIdPeliculaAndUsernameQuery;
 			valoracionAux = jdbcTemplateObject.queryForObject(SQL,
 					new Object[] { valoracion.getIdPelicula(), valoracion.getUsername() }, new ValoracionesMapper());
 		} catch (IncorrectResultSizeDataAccessException ex) { // no encuentra
@@ -46,7 +46,7 @@ public class ValoracionesDAO implements IValoracionesDAO {
 	public List<Valoraciones> findValoracionesByIdPelicula(Peliculas pelicula) {
 		List<Valoraciones> valoraciones = null;
 		try {
-			String SQL = queriesDB.findValoracionesByIdPeliculaQuery;
+			String SQL = QueriesDb.findValoracionesByIdPeliculaQuery;
 			valoraciones = jdbcTemplateObject.query(SQL, new Object[] { pelicula.getIdPelicula() },
 					new ValoracionesMapper());
 		} catch (IncorrectResultSizeDataAccessException ex) { // no encuentra
@@ -61,7 +61,7 @@ public class ValoracionesDAO implements IValoracionesDAO {
 	public List<Valoraciones> findValoracionesByUsername(Usuarios usuario) {
 		List<Valoraciones> valoraciones = null;
 		try {
-			String SQL = queriesDB.findValoracionesByUsernameQuery;
+			String SQL = QueriesDb.findValoracionesByUsernameQuery;
 			valoraciones = jdbcTemplateObject.query(SQL, new Object[] { usuario.getUsername() },
 					new ValoracionesMapper());
 		} catch (IncorrectResultSizeDataAccessException ex) { // no encuentra
@@ -74,7 +74,7 @@ public class ValoracionesDAO implements IValoracionesDAO {
 	}
 
 	public int countValoracionesByValoracionAndPelicula(Valoraciones valoracion) {
-		String SQL = queriesDB.countValoracionesByValoracionAndPeliculaQuery;
+		String SQL = QueriesDb.countValoracionesByValoracionAndPeliculaQuery;
 		int numValoraciones = 0;
 		try {
 			numValoraciones = jdbcTemplateObject.queryForObject(SQL, new Object[] { valoracion.getIdPelicula() },
@@ -89,7 +89,7 @@ public class ValoracionesDAO implements IValoracionesDAO {
 	}
 
 	public int countValoracionesByIdPelicula(Peliculas pelicula) {
-		String SQL = queriesDB.countValoracionesByIdPeliculaQuery;
+		String SQL = QueriesDb.countValoracionesByIdPeliculaQuery;
 		int numValoraciones = 0;
 		try {
 			numValoraciones = jdbcTemplateObject.queryForObject(SQL, new Object[] { pelicula.getIdPelicula() },
@@ -104,7 +104,7 @@ public class ValoracionesDAO implements IValoracionesDAO {
 	}
 
 	public Double avgValoracionesByPelicula(Peliculas pelicula) {
-		String SQL = queriesDB.avgValoracionesByPeliculaQuery;
+		String SQL = QueriesDb.avgValoracionesByPeliculaQuery;
 		double mediaValoraciones=0.0;
 		try {
 			mediaValoraciones = jdbcTemplateObject.queryForObject(SQL, new Object[] { pelicula.getIdPelicula() },
@@ -119,7 +119,7 @@ public class ValoracionesDAO implements IValoracionesDAO {
 	}
 
 	public void insert(Valoraciones valoracion) {
-		String SQL = queriesDB.insertValoracionQuery;
+		String SQL = QueriesDb.insertValoracionQuery;
 		try {
 			jdbcTemplateObject.update(SQL, valoracion.getIdPelicula(),valoracion.getUsername());
 		} catch (Exception ex) {

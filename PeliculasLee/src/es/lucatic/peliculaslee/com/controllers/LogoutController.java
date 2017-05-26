@@ -15,12 +15,14 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class LogoutController {
 
-	public LogoutController() {
-		// TODO Auto-generated constructor stub
+	public LogoutController() 
+	{
+		
 	}
-	@RequestMapping(value = "/logout", method = RequestMethod.POST)
-	// ANOTACION DE QUE VA A RECIBIR UN PRODUCTO. SIN LA ANOTACION NO FUNCIONA
-	public ModelAndView logout( HttpServletRequest request) {
+	
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public ModelAndView logout( HttpServletRequest request) 
+	{
 		String pagina = "../index";
 
 		HttpSession session = request.getSession(true);
