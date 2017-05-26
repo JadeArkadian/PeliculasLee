@@ -1770,7 +1770,10 @@ button:disabled,
     to {opacity: 1}
 }
 
-
+.letras
+{
+	display: inline;
+}
 
 
 

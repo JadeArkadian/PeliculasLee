@@ -26,7 +26,7 @@ public class VerDatosUsuarioController {
 		
 	}
 	// TODO Auto-generated constructor stub
-			@RequestMapping( value = "/verDatosUsuario", method = RequestMethod.POST )
+			@RequestMapping( value = "/perfil", method = RequestMethod.GET )
 			public ModelAndView verComentarios( HttpServletRequest request) {
 			String pagina="perfil";
 			HttpSession session = request.getSession(true);
@@ -39,14 +39,19 @@ public class VerDatosUsuarioController {
 			List<Peliculas> peliculasComentadasUsuario= new ArrayList<Peliculas>();
 			IPeliculasService peliculasService=new PeliculasService();
 			Peliculas pelicula= new Peliculas();
-			for(int i=0;i<comentariosUsuario.size();i++){
-				pelicula.setIdPelicula(comentariosUsuario.get(i).getIdPelicula());
-				peliculasComentadasUsuario.add(peliculasService.findPeliculaByIdPelicula(pelicula));
+			if(comentariosUsuario == null){
+				request.setAttribute("mensaje", "No has comentado ninguna pelicula aun...");
+			}else{
+				for(int i=0;i<comentariosUsuario.size();i++){
+					pelicula.setIdPelicula(comentariosUsuario.get(i).getIdPelicula());
+					peliculasComentadasUsuario.add(peliculasService.findPeliculaByIdPelicula(pelicula));
+					
+				}
 				
+				session.setAttribute("comentariosUsuario", comentariosUsuario);
+				session.setAttribute("peliculasComentadasUsuario", peliculasComentadasUsuario);
 			}
 			
-			session.setAttribute("comentariosUsuario", comentariosUsuario);
-			session.setAttribute("peliculasComentadasUsuario", peliculasComentadasUsuario);
 			return new ModelAndView(pagina);
 			
 			

@@ -22,7 +22,7 @@
                     <a href="index.jsp">Home</a>
                     
                     <c:if test="${not empty usuario}">
-                    	<a href="perfil.jsp">Mi Perfil</a>
+                    	<a href="perfil.do">Mi Perfil</a>
                     	<a href="logout.do">Cerrar Sesion</a>
                     </c:if>	
                     

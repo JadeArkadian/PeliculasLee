@@ -32,7 +32,7 @@ public class FiltradoValoracionController {
 				
 				public ModelAndView filtrarByValoracion(HttpServletRequest request) {
 					String mensaje="";
-					String pagina="index";
+					String pagina="../index";
 					HttpSession session = request.getSession(true);
 					Categorias categoria= new Categorias();
 					List<Peliculas> peliculas=new ArrayList<Peliculas>();
@@ -43,6 +43,9 @@ public class FiltradoValoracionController {
 					Valoraciones valoracion=new Valoraciones();
 					
 					peliculas=peliculasService.findAllPeliculas();
+					
+					if(Integer.parseInt(request.getParameter("filtrar"))==1)
+					{
 					//Aqui guardamos 1 valoracion media por cada pelicula.
 					for(int i=0;i<peliculas.size();i++){
 						valoracion.setIdPelicula(peliculas.get(i).getIdPelicula());
@@ -67,6 +70,7 @@ public class FiltradoValoracionController {
 						pelicula.setIdPelicula(valoraciones.get(i).getIdPelicula());
 						pelicula=peliculasService.findPeliculaByIdPelicula(pelicula);
 						peliculas.add(pelicula);
+					}
 					}
 					  
 					session.setAttribute("peliculas", peliculas);

@@ -3,9 +3,13 @@
 
 <%
 // Esto es una chapa...
-PeliculasService peliculasService = new PeliculasService ();
-List<Peliculas> peliculas = peliculasService.findAllPeliculas();
-request.setAttribute("peliculas", peliculas);
+
+if (request.getSession().getAttribute("peliculas") == null)
+{
+	PeliculasService peliculasService = new PeliculasService ();
+	List<Peliculas> peliculas = peliculasService.findAllPeliculas();
+	request.getSession().setAttribute("peliculas", peliculas);
+}
 %>
 
         <!-- Banner -->
@@ -13,6 +17,29 @@ request.setAttribute("peliculas", peliculas);
 			<!-- Main -->
 				<div id="main">
 					<div class="inner">
+					
+					<div align="center">
+						<form id="filtrar" name="filtrar" method="post"
+						action="filtrarByValoracion.do" >
+							 <select size="1" name="filtrar" id="filtrar" onchange="this.form.submit()"  style="width: 300px">
+							 	<option value="-1" >Filtrar por...</option>
+							 	<option value="0" >Todas</option>
+							 	<option value="1" >Mejor Valoradas</option>
+						
+							</select>						
+						</form>
+						</div>
+					<nav id="menucaletras">
+						<ul class="ulMenu">
+						<%! String[] abecedario={"A","B","C","D","E","F","G","H","I","J","K","L","M","Ñ","O","P","Q","R","S","T","U","V","W","X","Y","Z"};%>
+						
+						<% for( int i=0;i<abecedario.length;i++){ %>
+					
+							<li class="letras"><a href="filtrarByLetras.do?letra=<%=abecedario[i] %>" ><%=abecedario[i] %></a></li>
+							<%} %>
+										</ul>
+						</nav>	
+					
 					<!-- Boxes -->
 						<div class="thumbnails">
 						

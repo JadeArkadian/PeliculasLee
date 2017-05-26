@@ -31,7 +31,7 @@ public class ComentarController
 	public ModelAndView altaComentario( HttpServletRequest request) 
 	{
 		String comentarioInput = request.getParameter("comentarioInput");
-		String pagina="pelicula";
+		String pagina="../pelicula";
 		HttpSession session = request.getSession(true);
 		
 		IComentariosService comentariosService= new ComentariosService();

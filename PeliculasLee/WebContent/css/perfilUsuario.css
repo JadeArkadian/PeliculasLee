@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+.secusu{
+	width: 5em;
+	heigth: 5em;
+}
+#imagenUsuario{
+	top: 4em;
+	left: 10em;
+}
+#datosUsuario{
+
+	bottom: 19em;
+	width: 25em;
+	left: 60em;
+}

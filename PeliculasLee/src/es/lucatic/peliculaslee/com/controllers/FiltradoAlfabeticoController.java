@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.http.HttpRequest;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -12,12 +13,14 @@ import org.springframework.web.servlet.ModelAndView;
 import es.lucatic.peliculaslee.com.domains.Peliculas;
 import es.lucatic.peliculaslee.com.service.PeliculasService;
 
-
+@Controller
 public class FiltradoAlfabeticoController {
 	/* MAPEO del href del controlador.
 	@RequestMapping( value = "/filtrarporletra", method = RequestMethod.GET )
 	
+	
 	/* METODO QUE RECOGE LOS DATOS DEL FORMULARIO. */
+	@RequestMapping( value = "/filtrarByLetras", method = RequestMethod.GET )
 	public ModelAndView indicePelicula(HttpServletRequest request) {
 		//Se recoge por parametro del href:\\Controlador?letra="letraSeleccionada" que se implementa en el html
 		String letraEscogida = request.getParameter("letra");
@@ -26,6 +29,6 @@ public class FiltradoAlfabeticoController {
 		//Subo a la nube las peliculas filtradas en arrayList
 		request.getSession().setAttribute("peliculas", peliculasFiltradasLetra);//Machaca el atributo peliculas y lo remplaza.
 		//Depende de si implementamos la vista de busqueda avanzada
-		return new ModelAndView("index");
+		return new ModelAndView("../index");
 	}
 }
