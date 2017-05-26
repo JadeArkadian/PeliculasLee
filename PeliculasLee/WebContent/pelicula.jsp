@@ -41,9 +41,9 @@
 				<c:forEach items="${usuariosComentarios}" var="element">
 					<div class="comentario">
 						<p>
-							<strong>${element.getValue1}</strong>
+							<strong>${element.getValue1()}</strong>
 						</p>
-						<p>${element.getValue2}</p>
+						<p>${element.getValue2()}</p>
 					</div>
 				</c:forEach>
 				
@@ -51,16 +51,13 @@
 				<c:if test="${not empty usuario}">
 					<h2>Escribir un comentario</h2>
 	
-					<form action="escribirComentario.do" id="escribirComentario"
-						name="escribirComentario" method="post">
-	
-						<textarea form="escribirComentario" class="myCommentBox"></textarea>
-	
-						<input class="special" type="submit" value="Enviar">
+					<form action="escribirComentario.do" id="escribirComentario" name="escribirComentario" method="post">
+						<textarea form="escribirComentario" id="comentarioInput" name="comentarioInput" class="myCommentBox"></textarea>
+						<input class="special" type="submit" value="Enviar">	
 					</form>
+					
 				</c:if>
-
-
+				
 			</div>
 
 			<div class="rightPane">
@@ -84,21 +81,23 @@
 							</div>
 						</td>
 					</tr>
+					
 					<tr class="stars">
-					<form action="valorar.do">
-						<ul class="rate-area">
-							<input type="radio" id="5-star" name="estrellas" value="5" />
-							<label for="5-star" title="Amazing">5 stars</label>
-							<input type="radio" id="4-star" name="estrellas" value="4" />
-							<label for="4-star" title="Good">4cvn  stars</label>
-							<input type="radio" id="3-star" name="estrellas" value="3" />
-							<label for="3-star" title="Average">3 stars</label>
-							<input type="radio" id="2-star" name="estrellas" value="2" />
-							<label for="2-star" title="Not Good">2 stars</label>
-							<input type="radio" id="1-star" name="estrellas" value="1" />
-							<label for="1-star" title="Bad">1 star</label>
+					
+						<form action="valorar.do" method ="get">
+							<ul class="rate-area">
+								<input type="radio" id="5-star" name="estrellas" value="5" />
+								<label for="5-star" title="Amazing">5 stars</label>
+								<input type="radio" id="4-star" name="estrellas" value="4" />
+								<label for="4-star" title="Good">4cvn  stars</label>
+								<input type="radio" id="3-star" name="estrellas" value="3" />
+								<label for="3-star" title="Average">3 stars</label>
+								<input type="radio" id="2-star" name="estrellas" value="2" />
+								<label for="2-star" title="Not Good">2 stars</label>
+								<input type="radio" id="1-star" name="estrellas" value="1" />
+								<label for="1-star" title="Bad">1 star</label>
 							</ul>
-							</form>
+						</form>
 						
 					</tr>
 				</table>

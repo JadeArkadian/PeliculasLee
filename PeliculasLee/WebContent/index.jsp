@@ -10,8 +10,6 @@ request.setAttribute("peliculas", peliculas);
 
         <!-- Banner -->
         <section id="banner"></section>
-        <!-- MENSAJE -->
-        <p>${mensaje}</p>
 			<!-- Main -->
 				<div id="main">
 					<div class="inner">
@@ -34,4 +32,7 @@ request.setAttribute("peliculas", peliculas);
 				</div>
 
 
+<c:if test="${not empty mensaje}">
+	<%@include file="WEB-INF/includes/popup.jsp" %>
+</c:if>
 <%@include file="WEB-INF/includes/footer.jsp" %>

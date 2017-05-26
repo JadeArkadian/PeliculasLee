@@ -17,8 +17,8 @@ public class RegistroController {
 
 	// MAPEO usado en el form
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
-
-	public ModelAndView interface_altaUsuario() {
+	public ModelAndView interface_altaUsuario() 
+	{
 		System.out.println("ENTRAinterface_altaUsuario");
 
 		/* LE REDIRECCIONAMOS A LA PAGINA Index.jsp */
@@ -29,61 +29,79 @@ public class RegistroController {
 
 	@RequestMapping(value = "/addaltausuario", method = RequestMethod.POST)
 	// ANOTACION DE QUE VA A RECIBIR UN Usuario. SIN LA ANOTACION NO FUNCIONA
-	public ModelAndView altausuario(@Valid Usuarios usuario, HttpServletRequest request) {
+	public ModelAndView altausuario(@Valid Usuarios usuario, HttpServletRequest request) 
+	{
 		String mensaje = "";
 		boolean todoValido = true;
 		String inicio = "../index";
 		String registro = "register";
 		ModelAndView modelandviewAux = null;
+		
 		if (ValidatorUsuario.hayCamposVacios(usuario.getUsername(), usuario.getNombre(), usuario.getApellidos(),
-				usuario.getPassword(), usuario.getPasswordconfirm(), usuario.getEmail())) {
+				usuario.getPassword(), usuario.getPasswordconfirm(), usuario.getEmail())) 
+		{
 			mensaje = "Error,rellene todos los campos.";
 			request.setAttribute("mensaje", mensaje);
 			todoValido = false;
 			modelandviewAux = new ModelAndView(registro);
-		} else {
-			if (!ValidatorUsuario.esUsernameValido(usuario.getUsername())) {
+		} 
+		else 
+		{
+			if (!ValidatorUsuario.esUsernameValido(usuario.getUsername())) 
+			{
 				mensaje = "Error, el username tiene que tener minimo 5 caracteres.";
 				request.setAttribute("mensaje", mensaje);
 				todoValido = false;
 				modelandviewAux = new ModelAndView(registro);
-
-			} else {
-
-				if (!ValidatorUsuario.esNombreValido(usuario.getNombre())) {
+			} 
+			else 
+			{
+				if (!ValidatorUsuario.esNombreValido(usuario.getNombre())) 
+				{
 					mensaje = "Error, el nombre no puede contener numeros o digitos.";
 					request.setAttribute("mensaje", mensaje);
 					todoValido = false;
 					modelandviewAux = new ModelAndView(registro);
-				} else {
-					if (!ValidatorUsuario.esPasswordValida(usuario.getPassword())) {
-						mensaje = "Error, la contraseña debe contener al menos 1 numero, 1 mayuscula, 1 minuscula.";
+				} 
+				else 
+				{
+					if (!ValidatorUsuario.esPasswordValida(usuario.getPassword())) 
+					{
+						mensaje = "Error, la contraseï¿½a debe contener al menos 1 numero, 1 mayuscula, 1 minuscula.";
 						request.setAttribute("mensaje", mensaje);
 						todoValido = false;
 						modelandviewAux = new ModelAndView(registro);
-					} else {
+					} 
+					else 
+					{
 						if (!ValidatorUsuario.coincidenLasPasswords(usuario.getPassword(),
-								usuario.getPasswordconfirm())) {
-							mensaje = "Error, las contraseñas deben coincidir.";
+								usuario.getPasswordconfirm())) 
+						{
+							mensaje = "Error, las contraseï¿½as deben coincidir.";
 							request.setAttribute("mensaje", mensaje);
 							todoValido = false;
 							modelandviewAux = new ModelAndView(registro);
-						} else {
-							if (!ValidatorUsuario.esValidoMail(usuario.getEmail())) {
+						} 
+						else 
+						{
+							if (!ValidatorUsuario.esValidoMail(usuario.getEmail())) 
+							{
 								mensaje = "Error, en el formato del correo.";
 								request.setAttribute("mensaje", mensaje);
 								todoValido = false;
 								modelandviewAux = new ModelAndView(registro);
 							}
 						}
-
 					}
 				}
 			}
-			if (todoValido) {
+			
+			if (todoValido) 
+			{
 				UsuariosService usuService = new UsuariosService();
 				// Si no existe el usuario lo creo, con su respectivo mensaje.
-				if (usuService.findUsuariosByUsername(usuario) == null) {
+				if (usuService.findUsuariosByUsername(usuario) == null) 
+				{
 					usuService.insertUsuario(usuario);
 					// Subo a la sesion el usuario registrado
 					request.getSession().setAttribute("usuario", usuario);
@@ -92,14 +110,15 @@ public class RegistroController {
 					System.out.println("altausuario");
 					modelandviewAux = new ModelAndView(inicio);
 
-				} else {
+				} 
+				else 
+				{
 					System.out.println("El usuario ya existe.");
 					mensaje = "Error al realizar el registro";
 					request.setAttribute("mensaje", mensaje);
 					modelandviewAux = new ModelAndView(registro);
 				}
 			}
-
 		}
 
 		System.out.println(mensaje);

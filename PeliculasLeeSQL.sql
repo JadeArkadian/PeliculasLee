@@ -1,10 +1,10 @@
 CREATE DATABASE  IF NOT EXISTS `peliculaslee` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `peliculaslee`;
--- MySQL dump 10.13  Distrib 5.7.12, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.17, for Linux (x86_64)
 --
 -- Host: localhost    Database: peliculaslee
 -- ------------------------------------------------------
--- Server version	5.7.17-log
+-- Server version	5.7.18-0ubuntu0.16.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -117,6 +117,7 @@ CREATE TABLE `comentarios` (
 
 LOCK TABLES `comentarios` WRITE;
 /*!40000 ALTER TABLE `comentarios` DISABLE KEYS */;
+INSERT INTO `comentarios` VALUES (1,'Administrador','A ver.....funcionara?'),(1,'salchichenn@hotmail.es',NULL);
 /*!40000 ALTER TABLE `comentarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -173,7 +174,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES ('Admin12345678','Admin12345678','dfdsfsdfsdf','sdfsdfsdfdfsdfs','fsdfd@asdas.com',NULL),('Admin123456789','Admin123456789','sdfsdfsdfsd','sdfsdfsdfsd','dfsdf@ad.com',NULL);
+INSERT INTO `usuarios` VALUES ('Admin12345678','Admin12345678','dfdsfsdfsdf','sdfsdfsdfdfsdfs','fsdfd@asdas.com',NULL),('Admin123456789','Admin123456789','sdfsdfsdfsd','sdfsdfsdfsd','dfsdf@ad.com',NULL),('Administrador','abcd0123A','Administrador','de Tareas','admin@admin.com',NULL),('paco','1',NULL,NULL,NULL,NULL),('salchichenn@hotmail.es','Snoopy1986','Miguel','Strogoff','dfdsfsdf@dsaasd.com',NULL);
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -214,4 +215,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-05-25 18:27:22
+-- Dump completed on 2017-05-26  2:18:42

@@ -45,7 +45,6 @@ public class TransactionManager
 		return comentariosDAO;
 	}
 
-	
 	public CategoriasPorPeliculaDAO getCategoriasPorPeliculaDAO() 
 	{
 		CategoriasPorPeliculaDAO categoriasPorPeliculaDAO = context.getBean("CategoriasPorPeliculaDAO",CategoriasPorPeliculaDAO.class);
