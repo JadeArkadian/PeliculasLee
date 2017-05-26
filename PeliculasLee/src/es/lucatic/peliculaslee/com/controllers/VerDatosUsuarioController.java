@@ -18,6 +18,7 @@ import es.lucatic.peliculaslee.com.interfaces.services.IComentariosService;
 import es.lucatic.peliculaslee.com.interfaces.services.IPeliculasService;
 import es.lucatic.peliculaslee.com.service.ComentariosService;
 import es.lucatic.peliculaslee.com.service.PeliculasService;
+import es.lucatic.peliculaslee.com.utils.Pair;
 
 @Controller
 public class VerDatosUsuarioController {
@@ -27,32 +28,55 @@ public class VerDatosUsuarioController {
 	}
 	// TODO Auto-generated constructor stub
 			@RequestMapping( value = "/perfil", method = RequestMethod.GET )
-			public ModelAndView verComentarios( HttpServletRequest request) {
-			String pagina="perfil";
-			HttpSession session = request.getSession(true);
-			Comentarios comentario= new Comentarios();
-			List<Comentarios> comentariosUsuario=new ArrayList<Comentarios>();
-			IComentariosService comentariosService= new ComentariosService();
-			Usuarios usuario= new Usuarios();
-			usuario= (Usuarios) session.getAttribute("usuario");
-			comentariosUsuario=comentariosService.findComentariosByUsername(usuario);
-			List<Peliculas> peliculasComentadasUsuario= new ArrayList<Peliculas>();
-			IPeliculasService peliculasService=new PeliculasService();
-			Peliculas pelicula= new Peliculas();
-			if(comentariosUsuario == null){
-				request.setAttribute("mensaje", "No has comentado ninguna pelicula aun...");
-			}else{
-				for(int i=0;i<comentariosUsuario.size();i++){
-					pelicula.setIdPelicula(comentariosUsuario.get(i).getIdPelicula());
-					peliculasComentadasUsuario.add(peliculasService.findPeliculaByIdPelicula(pelicula));
+			public ModelAndView verComentarios( HttpServletRequest request) 
+			{
+				String pagina="perfil";
+				HttpSession session = request.getSession(true);
+				Comentarios comentario= new Comentarios();
+				
+				List<Comentarios> comentariosUsuario=new ArrayList<Comentarios>();
+				IComentariosService comentariosService= new ComentariosService();
+				Usuarios usuario= new Usuarios();
+				usuario= (Usuarios) session.getAttribute("usuario");
+				
+				comentariosUsuario=comentariosService.findComentariosByUsername(usuario);
+				List<Peliculas> peliculasComentadasUsuario= new ArrayList<Peliculas>();
+				IPeliculasService peliculasService=new PeliculasService();
+				Peliculas pelicula= new Peliculas();
+				
+				if(comentariosUsuario == null)
+				{
+					request.setAttribute("mensaje", "No has comentado ninguna pelicula aun...");
+				}
+				else
+				{
 					
+					List<Pair<String,String>> peliculasAndComentarios = new ArrayList<Pair<String,String>> ();
+					
+					for(int i=0;i<comentariosUsuario.size();i++)
+					{
+						
+						pelicula.setIdPelicula(comentariosUsuario.get(i).getIdPelicula());
+						pelicula= peliculasService.findPeliculaByIdPelicula(pelicula);
+						
+						Pair<String,String> aux = new Pair<String,String> (pelicula.getTitulo() ,comentariosUsuario.get(i).getComentario());
+						peliculasAndComentarios.add(aux);
+						
+						
+
+						
+						System.out.println( comentariosUsuario.get(i).getComentario() );
+						
+//						peliculasAndComentarios.get(i).setValue2 ( comentariosUsuario.get(i).getComentario() );
+//						peliculasAndComentarios.get(i).setValue1 ( pelicula.getTitulo());
+	
+					}
+					
+					
+					session.setAttribute("peliculasAndComentarios", peliculasAndComentarios);
 				}
 				
-				session.setAttribute("comentariosUsuario", comentariosUsuario);
-				session.setAttribute("peliculasComentadasUsuario", peliculasComentadasUsuario);
-			}
-			
-			return new ModelAndView(pagina);
+				return new ModelAndView(pagina);
 			
 			
 			

@@ -17,7 +17,6 @@
         <!-- Header menu -->
         <header id="header">
             <div class="inner">
-                <a href="index.html" class="logo">Theory</a>
                 <nav id="nav">
                     <a href="index.jsp">Home</a>
                     

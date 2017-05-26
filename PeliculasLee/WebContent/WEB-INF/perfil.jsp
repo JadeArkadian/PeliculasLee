@@ -36,25 +36,23 @@
 	</table>
 </section>
 <section id="misComentarios">
-	<% List<Peliculas> pelis = (List<Peliculas>) request.getSession().getAttribute("peliculasComentadasUsuario");%>
-	<c:out value="${mensaje}"></c:out>
+ 		<p>${mensaje}</p>
 		<table>
 			<tr>
-			<c:set var="i" value="0"></c:set>
 				<td>Pelicula</td>
-				<td>Nº Comentarios: <%=pelis.size() %> </td>
+				<td>Nº Comentarios: ${peliculasAndComentarios.size()} </td>
 			</tr>
 			
-				<c:forEach items="${peliculasComentadasUsuario}" var="pelicula">
-			<tr>
-					<td>${pelicula.getTitulo()}</td>
-				
-				
-					<td>${comentariosUsuario[i]}</td>
-				<c${i=i+1}></c>
+			<c:if test="${not empty peliculasAndComentarios}">
 			
-			</tr> 
-			</c:forEach>
+			<!--  Pelicula - Comentario -->
+				<c:forEach items="${peliculasAndComentarios}" var="element">
+				<tr>
+					<td>${element.getValue1()}</td>
+					<td>${element.getValue2()}</td>
+				</tr> 
+				</c:forEach>
+			</c:if>
 		</table>
 </section>
 
