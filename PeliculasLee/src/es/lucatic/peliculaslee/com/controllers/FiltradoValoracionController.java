@@ -71,9 +71,12 @@ public class FiltradoValoracionController {
 						pelicula=peliculasService.findPeliculaByIdPelicula(pelicula);
 						peliculas.add(pelicula);
 					}
+					session.setAttribute("peliculas", peliculas);
 					}
 					  
+					if(Integer.parseInt(request.getParameter("filtrar"))==0){
 					session.setAttribute("peliculas", peliculas);
+					}
 					
 					return new ModelAndView(pagina);
 					
